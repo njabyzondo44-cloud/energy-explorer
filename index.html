@@ -552,7 +552,8 @@
 
         border-radius: 25px;
 
-        padding: 45px;
+        padding: 40px;
+
         box-shadow:
             0 7px 30px rgba(0,0,0,0.10);
 
@@ -562,19 +563,185 @@
         margin: auto;
     }
 
-    .activity-box > i {
-        font-size: 50px;
-        color: #1d4e89;
-        margin-bottom: 15px;
+
+    /* =========================================
+       COMPACT LEARNING OBJECTIVES
+    ========================================= */
+
+    .objectives-box {
+        background: #eef5fa;
+
+        border-radius: 18px;
+
+        padding: 25px 30px;
+
+        margin-bottom: 35px;
+
+        text-align: left;
+
+        border-left: 5px solid #ffd166;
     }
+
+    .objectives-heading {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        margin-bottom: 8px;
+    }
+
+    .objectives-heading i {
+        color: #1d4e89;
+
+        font-size: 1.3rem;
+    }
+
+    .objectives-heading h2 {
+        color: #102a43;
+
+        font-size: 1.4rem;
+
+        margin: 0;
+    }
+
+    .objectives-box > p {
+        color: #52606d;
+
+        margin-bottom: 18px;
+
+        font-size: 0.95rem;
+    }
+
+    .objectives-list {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px 25px;
+
+        max-width: 100%;
+
+        margin: 0;
+    }
+
+    .objective {
+        background: white;
+
+        padding: 10px 14px;
+
+        border-radius: 10px;
+
+        box-shadow:
+            0 2px 8px rgba(0,0,0,0.04);
+
+        color: #334e68;
+
+        font-size: 0.9rem;
+    }
+
+    .objective i {
+        color: #1d4e89;
+
+        margin-right: 8px;
+    }
+
+
+    /* =========================================
+       AFTER REVEALING YOUR CARD
+    ========================================= */
+
+    .thinking-instructions {
+        margin-top: 0;
+
+        margin-bottom: 30px;
+
+        padding: 30px;
+
+        background: #f8fafc;
+
+        border-radius: 18px;
+
+        text-align: left;
+
+        border: 1px solid #e5e7eb;
+    }
+
+    .thinking-instructions h3 {
+        color: #102a43;
+
+        margin-bottom: 10px;
+
+        text-align: center;
+
+        font-size: 1.45rem;
+    }
+
+    .thinking-instructions > p {
+        color: #52606d;
+
+        margin-bottom: 22px;
+
+        text-align: center;
+
+        max-width: 800px;
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .thinking-list {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 15px;
+
+        list-style: none;
+
+        margin: 0;
+    }
+
+    .thinking-list li {
+        background: white;
+
+        padding: 20px;
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 3px 10px rgba(0,0,0,0.05);
+
+        color: #52606d;
+
+        line-height: 1.5;
+    }
+
+    .thinking-list strong {
+        color: #1d4e89;
+
+        font-size: 1.05rem;
+    }
+
+    .thinking-list strong i {
+        margin-right: 6px;
+    }
+
+
+    /* =========================================
+       FOUR ACTIVITY STEPS
+    ========================================= */
 
     .activity-step {
         display: grid;
+
         grid-template-columns: repeat(4, 1fr);
 
         gap: 15px;
 
-        margin-top: 35px;
+        margin: 30px 0 45px;
     }
 
     .step {
@@ -591,39 +758,49 @@
         font-weight: bold;
 
         color: #1d4e89;
+
+        margin-bottom: 3px;
+    }
+
+    .step h3 {
+        color: #102a43;
+
+        margin-bottom: 5px;
+    }
+
+    .step p {
+        color: #52606d;
+
+        font-size: 0.9rem;
     }
 
 
     /* =========================================
-       OBJECTIVES
+       CHOOSE • THINK • CLASSIFY • EXPLAIN
     ========================================= */
 
-    .objectives {
-        background: #eef5fa;
+    .choose-section {
+        margin-top: 5px;
     }
 
-    .objectives-list {
-        max-width: 800px;
-        margin: auto;
+    .choose-intro {
+        max-width: 850px;
 
-        display: grid;
-        gap: 15px;
+        margin: 0 auto 30px auto;
     }
 
-    .objective {
-        background: white;
+    .choose-intro h2 {
+        color: #102a43;
 
-        padding: 20px;
+        font-size: 2rem;
 
-        border-radius: 12px;
-
-        box-shadow:
-            0 3px 10px rgba(0,0,0,0.05);
+        margin-bottom: 12px;
     }
 
-    .objective i {
-        color: #1d4e89;
-        margin-right: 10px;
+    .choose-intro p {
+        color: #52606d;
+
+        line-height: 1.7;
     }
 
 
@@ -631,45 +808,43 @@
        INTERACTIVE ENERGY CARDS
     ========================================= */
 
-    .choose-section {
-        margin-top: 50px;
-    }
-
-    .choose-intro {
-        max-width: 850px;
-        margin: 0 auto 30px auto;
-    }
-
-    .choose-intro h3 {
-        color: #102a43;
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-    }
-
-    .choose-intro p {
-        color: #52606d;
-    }
-
     .flip-card-grid {
         display: grid;
+
         grid-template-columns: repeat(4, 1fr);
+
         gap: 25px;
+
         max-width: 1000px;
+
         margin: 35px auto 0 auto;
+
         perspective: 1200px;
     }
 
     .flip-card {
         width: 100%;
+
         aspect-ratio: 6 / 8;
+
         perspective: 1200px;
+
         cursor: pointer;
+
         outline: none;
+
+        background: transparent;
+
+        border: none;
+
+        padding: 0;
     }
 
     .flip-card-inner {
         position: relative;
+
         width: 100%;
+
         height: 100%;
 
         transition:
@@ -687,9 +862,11 @@
         position: absolute;
 
         width: 100%;
+
         height: 100%;
 
         top: 0;
+
         left: 0;
 
         border-radius: 18px;
@@ -697,6 +874,7 @@
         overflow: hidden;
 
         backface-visibility: hidden;
+
         -webkit-backface-visibility: hidden;
 
         box-shadow:
@@ -718,6 +896,7 @@
     .flip-card-front img,
     .flip-card-back img {
         width: 100%;
+
         height: 100%;
 
         display: block;
@@ -735,11 +914,21 @@
             translateY(-6px);
     }
 
+    .flip-card:focus-visible {
+        outline: 4px solid #ffd166;
+
+        outline-offset: 5px;
+
+        border-radius: 18px;
+    }
+
     .card-click-message {
         margin-top: 25px;
 
         display: inline-flex;
+
         align-items: center;
+
         gap: 10px;
 
         padding: 12px 20px;
@@ -759,69 +948,14 @@
 
 
     /* =========================================
-       ACTIVITY THINK / CLASSIFY / EXPLAIN
-    ========================================= */
-
-    .thinking-instructions {
-        margin-top: 45px;
-
-        padding: 30px;
-
-        background: #eef5fa;
-
-        border-radius: 18px;
-
-        text-align: left;
-    }
-
-    .thinking-instructions h3 {
-        color: #102a43;
-
-        margin-bottom: 12px;
-
-        text-align: center;
-    }
-
-    .thinking-instructions p {
-        color: #52606d;
-
-        margin-bottom: 20px;
-    }
-
-    .thinking-list {
-        display: grid;
-
-        grid-template-columns:
-            repeat(3, 1fr);
-
-        gap: 15px;
-
-        list-style: none;
-    }
-
-    .thinking-list li {
-        background: white;
-
-        padding: 18px;
-
-        border-radius: 12px;
-
-        box-shadow:
-            0 3px 10px rgba(0,0,0,0.05);
-    }
-
-    .thinking-list strong {
-        color: #1d4e89;
-    }
-
-
-    /* =========================================
        RESOURCES
     ========================================= */
 
     .resources-grid {
         display: grid;
+
         grid-template-columns: repeat(5, 1fr);
+
         gap: 18px;
     }
 
@@ -838,7 +972,9 @@
             0 5px 15px rgba(0,0,0,0.07);
 
         display: flex;
+
         flex-direction: column;
+
         align-items: center;
 
         transition: 0.3s;
@@ -850,17 +986,21 @@
 
     .resource-icon {
         font-size: 40px;
+
         margin-bottom: 12px;
+
         color: #1d4e89;
     }
 
     .resource h3 {
         color: #102a43;
+
         margin-bottom: 10px;
     }
 
     .resource p {
         color: #52606d;
+
         font-size: 0.95rem;
 
         flex-grow: 1;
@@ -886,6 +1026,7 @@
         cursor: pointer;
 
         transition: 0.3s;
+
         font-size: 0.9rem;
     }
 
@@ -950,6 +1091,7 @@
 
     .video-heading .resource-icon {
         font-size: 45px;
+
         color: #e63946;
     }
 
@@ -985,9 +1127,11 @@
         position: absolute;
 
         top: 0;
+
         left: 0;
 
         width: 100%;
+
         height: 100%;
 
         border: none;
@@ -1049,6 +1193,7 @@
 
     .curriculum-icon {
         font-size: 45px;
+
         color: #ffd166;
     }
 
@@ -1179,6 +1324,7 @@
 
     footer h3 i {
         color: #ffd166;
+
         margin-right: 6px;
     }
 
@@ -1199,9 +1345,11 @@
         z-index: 2000;
 
         left: 0;
+
         top: 0;
 
         width: 100%;
+
         height: 100%;
 
         background:
@@ -1241,11 +1389,13 @@
 
         from {
             transform: scale(0.8);
+
             opacity: 0;
         }
 
         to {
             transform: scale(1);
+
             opacity: 1;
         }
 
@@ -1410,6 +1560,14 @@
             grid-template-columns: 1fr;
         }
 
+        .objectives-list {
+            grid-template-columns: 1fr;
+        }
+
+        .thinking-list {
+            grid-template-columns: 1fr;
+        }
+
         .activity-step {
             grid-template-columns:
                 repeat(2, 1fr);
@@ -1444,6 +1602,7 @@
 
         .hero-collage {
             width: 100%;
+
             height: 100%;
         }
 
@@ -1461,12 +1620,18 @@
             grid-template-columns: 1fr;
         }
 
+        .objectives-box,
+        .thinking-instructions {
+            padding: 20px;
+        }
+
         .activity-step {
             grid-template-columns: 1fr;
         }
 
         .flip-card-grid {
             grid-template-columns: 1fr 1fr;
+
             gap: 15px;
         }
 
@@ -1620,7 +1785,9 @@
     <div class="hero-content">
 
         <div class="hero-icon">
+
             <i class="fa-solid fa-bolt"></i>
+
         </div>
 
         <h1>
@@ -2176,75 +2343,256 @@
 
         <div class="activity-box">
 
-            <i class="fa-solid fa-gamepad"></i>
-
 
             <!-- =====================================
                  LEARNING OBJECTIVES
             ====================================== -->
 
-            <h2>
-                Learning Objectives
-            </h2>
+            <div class="objectives-box">
 
-            <p>
-                By the end of the activity, learners should be able to:
-            </p>
+                <div class="objectives-heading">
 
+                    <i class="fa-solid fa-bullseye"></i>
 
-            <div class="objectives-list">
-
-
-                <div class="objective">
-
-                    <i class="fa-solid fa-circle-check"></i>
-
-                    Identify different energy sources.
+                    <h2>
+                        Learning Objectives
+                    </h2>
 
                 </div>
 
 
-                <div class="objective">
+                <p>
+                    By the end of the activity, learners should be able to:
+                </p>
 
-                    <i class="fa-solid fa-circle-check"></i>
 
-                    Describe how different energy sources can be used.
+                <div class="objectives-list">
+
+
+                    <div class="objective">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Identify different energy sources.
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Describe how different energy sources can be used.
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Classify energy sources as renewable or non-renewable.
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Explain the reasoning behind their classifications.
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Communicate and discuss scientific ideas with others.
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Connect classroom learning with energy use in everyday life.
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 AFTER REVEALING YOUR CARD
+            ====================================== -->
+
+            <div class="thinking-instructions">
+
+                <h3>
+                    After revealing your card...
+                </h3>
+
+
+                <p>
+                    Work with your friends and use the information on
+                    your card to complete the next three stages of the
+                    Energy Explorer challenge.
+                </p>
+
+
+                <ul class="thinking-list">
+
+
+                    <!-- THINK -->
+
+                    <li>
+
+                        <strong>
+
+                            <i class="fa-solid fa-lightbulb"></i>
+
+                            Think
+
+                        </strong>
+
+                        <br><br>
+
+                        Consider where the energy comes from and how
+                        the energy source is used.
+
+                    </li>
+
+
+                    <!-- CLASSIFY -->
+
+                    <li>
+
+                        <strong>
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                            Classify
+
+                        </strong>
+
+                        <br><br>
+
+                        Decide whether the energy source is renewable
+                        or non-renewable.
+
+                    </li>
+
+
+                    <!-- EXPLAIN -->
+
+                    <li>
+
+                        <strong>
+
+                            <i class="fa-solid fa-comments"></i>
+
+                            Explain
+
+                        </strong>
+
+                        <br><br>
+
+                        Explain your classification to your friends
+                        and give a reason for your decision.
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+            <!-- =====================================
+                 FOUR ACTIVITY STEPS
+            ====================================== -->
+
+            <div class="activity-step">
+
+
+                <!-- STEP 1 -->
+
+                <div class="step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Choose
+                    </h3>
+
+                    <p>
+                        Pick an energy source card and turn it over.
+                    </p>
 
                 </div>
 
 
-                <div class="objective">
+                <!-- STEP 2 -->
 
-                    <i class="fa-solid fa-circle-check"></i>
+                <div class="step">
 
-                    Classify energy sources as renewable or non-renewable.
+                    <div class="step-number">
+                        2
+                    </div>
 
-                </div>
+                    <h3>
+                        Think
+                    </h3>
 
-
-                <div class="objective">
-
-                    <i class="fa-solid fa-circle-check"></i>
-
-                    Explain the reasoning behind their classifications.
-
-                </div>
-
-
-                <div class="objective">
-
-                    <i class="fa-solid fa-circle-check"></i>
-
-                    Communicate and discuss scientific ideas with others.
+                    <p>
+                        Consider where the energy comes from.
+                    </p>
 
                 </div>
 
 
-                <div class="objective">
+                <!-- STEP 3 -->
 
-                    <i class="fa-solid fa-circle-check"></i>
+                <div class="step">
 
-                    Connect classroom learning with energy use in everyday life.
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h3>
+                        Classify
+                    </h3>
+
+                    <p>
+                        Place it in the correct category.
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 4 -->
+
+                <div class="step">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <h3>
+                        Explain
+                    </h3>
+
+                    <p>
+                        Give a reason for your decision.
+                    </p>
 
                 </div>
 
@@ -2253,10 +2601,11 @@
 
 
             <!-- =====================================
-                 CHOOSE THINK CLASSIFY EXPLAIN
+                 CHOOSE • THINK • CLASSIFY • EXPLAIN
             ====================================== -->
 
             <div class="choose-section">
+
 
                 <div class="choose-intro">
 
@@ -2532,154 +2881,6 @@
                 </div>
 
 
-                <!-- =================================
-                     THINK CLASSIFY EXPLAIN
-                ================================== -->
-
-                <div class="thinking-instructions">
-
-                    <h3>
-                        After revealing your card...
-                    </h3>
-
-                    <p>
-                        Work with your friends and use the information on
-                        your card to complete the next three stages of the
-                        Energy Explorer challenge.
-                    </p>
-
-
-                    <ul class="thinking-list">
-
-
-                        <li>
-
-                            <strong>
-                                <i class="fa-solid fa-lightbulb"></i>
-                                Think
-                            </strong>
-
-                            <br><br>
-
-                            Consider where the energy comes from and how
-                            the energy source is used.
-
-                        </li>
-
-
-                        <li>
-
-                            <strong>
-                                <i class="fa-solid fa-layer-group"></i>
-                                Classify
-                            </strong>
-
-                            <br><br>
-
-                            Decide whether the energy source is renewable
-                            or non-renewable.
-
-                        </li>
-
-
-                        <li>
-
-                            <strong>
-                                <i class="fa-solid fa-comments"></i>
-                                Explain
-                            </strong>
-
-                            <br><br>
-
-                            Explain your classification to your friends
-                            and give a reason for your decision.
-
-                        </li>
-
-
-                    </ul>
-
-                </div>
-
-
-                <!-- =================================
-                     FOUR ACTIVITY STEPS
-                ================================== -->
-
-                <div class="activity-step">
-
-
-                    <div class="step">
-
-                        <div class="step-number">
-                            1
-                        </div>
-
-                        <h3>
-                            Choose
-                        </h3>
-
-                        <p>
-                            Pick an energy source card and turn it over.
-                        </p>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="step-number">
-                            2
-                        </div>
-
-                        <h3>
-                            Think
-                        </h3>
-
-                        <p>
-                            Consider where the energy comes from.
-                        </p>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="step-number">
-                            3
-                        </div>
-
-                        <h3>
-                            Classify
-                        </h3>
-
-                        <p>
-                            Place it in the correct category.
-                        </p>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="step-number">
-                            4
-                        </div>
-
-                        <h3>
-                            Explain
-                        </h3>
-
-                        <p>
-                            Give a reason for your decision.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
             </div>
 
 
@@ -2750,16 +2951,16 @@
 
             <div class="video-wrapper">
 
-    <iframe
-        src="https://www.youtube.com/embed/axCR3uIn3Vs?si=P-e40lYbfHiQKuLZ"
-        title="Renewable and Non-renewable Sources of Energy"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-    </iframe>
+                <iframe
+                    src="https://www.youtube.com/embed/axCR3uIn3Vs?si=P-e40lYbfHiQKuLZ"
+                    title="Renewable and Non-renewable Sources of Energy"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
 
-             </div>
+            </div>
 
 
             <div class="video-learning">
@@ -2862,8 +3063,6 @@
                     through interactive game-based activities.
                 </p>
 
-
-                <!-- PASTE YOUR BOOKLET LINK HERE -->
 
                 <a
                     href="#"
@@ -2970,8 +3169,6 @@
                     through an interactive online game.
                 </p>
 
-
-                <!-- PASTE YOUR ONLINE GAME LINK HERE -->
 
                 <a
                     href="#"
@@ -3748,7 +3945,7 @@
 
     /* =========================================
        HERO BACKGROUND SLIDESHOW
-       
+
        Each image is displayed for 5 seconds.
        The current image slides LEFT while
        the next image enters from the RIGHT.
