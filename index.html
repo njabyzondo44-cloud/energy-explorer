@@ -558,7 +558,7 @@
 
         text-align: center;
 
-        max-width: 950px;
+        max-width: 1100px;
         margin: auto;
     }
 
@@ -624,6 +624,194 @@
     .objective i {
         color: #1d4e89;
         margin-right: 10px;
+    }
+
+
+    /* =========================================
+       INTERACTIVE ENERGY CARDS
+    ========================================= */
+
+    .choose-section {
+        margin-top: 50px;
+    }
+
+    .choose-intro {
+        max-width: 850px;
+        margin: 0 auto 30px auto;
+    }
+
+    .choose-intro h3 {
+        color: #102a43;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .choose-intro p {
+        color: #52606d;
+    }
+
+    .flip-card-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        max-width: 1000px;
+        margin: 35px auto 0 auto;
+        perspective: 1200px;
+    }
+
+    .flip-card {
+        width: 100%;
+        aspect-ratio: 6 / 8;
+        perspective: 1200px;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        transition:
+            transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+
+        transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+
+        top: 0;
+        left: 0;
+
+        border-radius: 18px;
+
+        overflow: hidden;
+
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+
+        box-shadow:
+            0 8px 25px rgba(0,0,0,0.16);
+    }
+
+    .flip-card-front {
+        background: #102a43;
+
+        transform: rotateY(0deg);
+    }
+
+    .flip-card-back {
+        background: white;
+
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front img,
+    .flip-card-back img {
+        width: 100%;
+        height: 100%;
+
+        display: block;
+
+        object-fit: cover;
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: translateY(-6px);
+    }
+
+    .flip-card.flipped:hover .flip-card-inner {
+        transform:
+            rotateY(180deg)
+            translateY(-6px);
+    }
+
+    .card-click-message {
+        margin-top: 25px;
+
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 12px 20px;
+
+        background: #eef5fa;
+
+        color: #102a43;
+
+        border-radius: 25px;
+
+        font-weight: bold;
+    }
+
+    .card-click-message i {
+        color: #ffd166;
+    }
+
+
+    /* =========================================
+       ACTIVITY THINK / CLASSIFY / EXPLAIN
+    ========================================= */
+
+    .thinking-instructions {
+        margin-top: 45px;
+
+        padding: 30px;
+
+        background: #eef5fa;
+
+        border-radius: 18px;
+
+        text-align: left;
+    }
+
+    .thinking-instructions h3 {
+        color: #102a43;
+
+        margin-bottom: 12px;
+
+        text-align: center;
+    }
+
+    .thinking-instructions p {
+        color: #52606d;
+
+        margin-bottom: 20px;
+    }
+
+    .thinking-list {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 15px;
+
+        list-style: none;
+    }
+
+    .thinking-list li {
+        background: white;
+
+        padding: 18px;
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    .thinking-list strong {
+        color: #1d4e89;
     }
 
 
@@ -1171,6 +1359,11 @@
                 repeat(3, 1fr);
         }
 
+        .flip-card-grid {
+            grid-template-columns:
+                repeat(3, 1fr);
+        }
+
     }
 
 
@@ -1187,6 +1380,10 @@
         }
 
         .panel-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .thinking-list {
             grid-template-columns: 1fr;
         }
 
@@ -1214,6 +1411,11 @@
         }
 
         .activity-step {
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+        .flip-card-grid {
             grid-template-columns:
                 repeat(2, 1fr);
         }
@@ -1263,6 +1465,11 @@
             grid-template-columns: 1fr;
         }
 
+        .flip-card-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
         .activity-box {
             padding: 25px;
         }
@@ -1302,6 +1509,10 @@
 
         .hero-collage img:first-child {
             left: 0;
+        }
+
+        .flip-card-inner {
+            transition: none;
         }
 
     }
@@ -2042,91 +2253,429 @@
 
 
             <!-- =====================================
-                 ACTIVITY INSTRUCTIONS
+                 CHOOSE THINK CLASSIFY EXPLAIN
             ====================================== -->
 
-            <div style="margin-top: 45px;">
+            <div class="choose-section">
 
-                <h2>
-                    Choose • Think • Classify • Explain
-                </h2>
+                <div class="choose-intro">
 
-                <p>
-                    Use the energy cards from the physical activity to explore
-                    different energy sources. Select a card, classify it and
-                    explain your reasoning to your group.
-                </p>
-
-            </div>
-
-
-            <div class="activity-step">
-
-
-                <div class="step">
-
-                    <div class="step-number">
-                        1
-                    </div>
-
-                    <h3>
-                        Choose
-                    </h3>
+                    <h2>
+                        Choose • Think • Classify • Explain
+                    </h2>
 
                     <p>
-                        Pick an energy source card.
+                        Choose an Energy Explorer card below. Each card is
+                        facing down. Click a card to turn it over and discover
+                        the energy source. Read the card carefully, then
+                        think, classify and explain your decision to your
+                        friends.
                     </p>
 
                 </div>
 
 
-                <div class="step">
+                <!-- =================================
+                     INTERACTIVE FLIP CARDS
+                ================================== -->
 
-                    <div class="step-number">
-                        2
+                <div class="flip-card-grid">
+
+
+                    <!-- CARD 1 -->
+
+                    <div
+                        class="flip-card"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Turn over Energy Explorer card 1"
+                        onclick="flipEnergyCard(this)"
+                        onkeydown="handleCardKey(event, this)">
+
+                        <div class="flip-card-inner">
+
+                            <div class="flip-card-front">
+
+                                <img
+                                    src="images/CardBackGroundWhenFacingDown.jpeg"
+                                    alt="Energy Explorer card facing down">
+
+                            </div>
+
+
+                            <div class="flip-card-back">
+
+                                <img
+                                    src="images/1.jpeg"
+                                    alt="Energy Explorer card 1">
+
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <h3>
-                        Think
-                    </h3>
 
-                    <p>
-                        Consider where the energy comes from.
-                    </p>
+                    <!-- CARD 2 -->
+
+                    <div
+                        class="flip-card"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Turn over Energy Explorer card 2"
+                        onclick="flipEnergyCard(this)"
+                        onkeydown="handleCardKey(event, this)">
+
+                        <div class="flip-card-inner">
+
+                            <div class="flip-card-front">
+
+                                <img
+                                    src="images/CardBackGroundWhenFacingDown.jpeg"
+                                    alt="Energy Explorer card facing down">
+
+                            </div>
+
+
+                            <div class="flip-card-back">
+
+                                <img
+                                    src="images/2.jpeg"
+                                    alt="Energy Explorer card 2">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 3 -->
+
+                    <div
+                        class="flip-card"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Turn over Energy Explorer card 3"
+                        onclick="flipEnergyCard(this)"
+                        onkeydown="handleCardKey(event, this)">
+
+                        <div class="flip-card-inner">
+
+                            <div class="flip-card-front">
+
+                                <img
+                                    src="images/CardBackGroundWhenFacingDown.jpeg"
+                                    alt="Energy Explorer card facing down">
+
+                            </div>
+
+
+                            <div class="flip-card-back">
+
+                                <img
+                                    src="images/3.jpeg"
+                                    alt="Energy Explorer card 3">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 4 -->
+
+                    <div
+                        class="flip-card"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Turn over Energy Explorer card 4"
+                        onclick="flipEnergyCard(this)"
+                        onkeydown="handleCardKey(event, this)">
+
+                        <div class="flip-card-inner">
+
+                            <div class="flip-card-front">
+
+                                <img
+                                    src="images/CardBackGroundWhenFacingDown.jpeg"
+                                    alt="Energy Explorer card facing down">
+
+                            </div>
+
+
+                            <div class="flip-card-back">
+
+                                <img
+                                    src="images/4.jpeg"
+                                    alt="Energy Explorer card 4">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 5 -->
+
+                    <div
+                        class="flip-card"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Turn over Energy Explorer card 5"
+                        onclick="flipEnergyCard(this)"
+                        onkeydown="handleCardKey(event, this)">
+
+                        <div class="flip-card-inner">
+
+                            <div class="flip-card-front">
+
+                                <img
+                                    src="images/CardBackGroundWhenFacingDown.jpeg"
+                                    alt="Energy Explorer card facing down">
+
+                            </div>
+
+
+                            <div class="flip-card-back">
+
+                                <img
+                                    src="images/5.jpeg"
+                                    alt="Energy Explorer card 5">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 6 -->
+
+                    <div
+                        class="flip-card"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Turn over Energy Explorer card 6"
+                        onclick="flipEnergyCard(this)"
+                        onkeydown="handleCardKey(event, this)">
+
+                        <div class="flip-card-inner">
+
+                            <div class="flip-card-front">
+
+                                <img
+                                    src="images/CardBackGroundWhenFacingDown.jpeg"
+                                    alt="Energy Explorer card facing down">
+
+                            </div>
+
+
+                            <div class="flip-card-back">
+
+                                <img
+                                    src="images/6.jpeg"
+                                    alt="Energy Explorer card 6">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 7 -->
+
+                    <div
+                        class="flip-card"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Turn over Energy Explorer card 7"
+                        onclick="flipEnergyCard(this)"
+                        onkeydown="handleCardKey(event, this)">
+
+                        <div class="flip-card-inner">
+
+                            <div class="flip-card-front">
+
+                                <img
+                                    src="images/CardBackGroundWhenFacingDown.jpeg"
+                                    alt="Energy Explorer card facing down">
+
+                            </div>
+
+
+                            <div class="flip-card-back">
+
+                                <img
+                                    src="images/7.jpeg"
+                                    alt="Energy Explorer card 7">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
 
                 </div>
 
 
-                <div class="step">
+                <div class="card-click-message">
 
-                    <div class="step-number">
-                        3
-                    </div>
+                    <i class="fa-solid fa-hand-pointer"></i>
 
-                    <h3>
-                        Classify
-                    </h3>
-
-                    <p>
-                        Place it in the correct category.
-                    </p>
+                    Click a card to reveal the energy source
 
                 </div>
 
 
-                <div class="step">
+                <!-- =================================
+                     THINK CLASSIFY EXPLAIN
+                ================================== -->
 
-                    <div class="step-number">
-                        4
-                    </div>
+                <div class="thinking-instructions">
 
                     <h3>
-                        Explain
+                        After revealing your card...
                     </h3>
 
                     <p>
-                        Give a reason for your decision.
+                        Work with your friends and use the information on
+                        your card to complete the next three stages of the
+                        Energy Explorer challenge.
                     </p>
+
+
+                    <ul class="thinking-list">
+
+
+                        <li>
+
+                            <strong>
+                                <i class="fa-solid fa-lightbulb"></i>
+                                Think
+                            </strong>
+
+                            <br><br>
+
+                            Consider where the energy comes from and how
+                            the energy source is used.
+
+                        </li>
+
+
+                        <li>
+
+                            <strong>
+                                <i class="fa-solid fa-layer-group"></i>
+                                Classify
+                            </strong>
+
+                            <br><br>
+
+                            Decide whether the energy source is renewable
+                            or non-renewable.
+
+                        </li>
+
+
+                        <li>
+
+                            <strong>
+                                <i class="fa-solid fa-comments"></i>
+                                Explain
+                            </strong>
+
+                            <br><br>
+
+                            Explain your classification to your friends
+                            and give a reason for your decision.
+
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =================================
+                     FOUR ACTIVITY STEPS
+                ================================== -->
+
+                <div class="activity-step">
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <h3>
+                            Choose
+                        </h3>
+
+                        <p>
+                            Pick an energy source card and turn it over.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <h3>
+                            Think
+                        </h3>
+
+                        <p>
+                            Consider where the energy comes from.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <h3>
+                            Classify
+                        </h3>
+
+                        <p>
+                            Place it in the correct category.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            4
+                        </div>
+
+                        <h3>
+                            Explain
+                        </h3>
+
+                        <p>
+                            Give a reason for your decision.
+                        </p>
+
+                    </div>
+
 
                 </div>
 
@@ -2720,6 +3269,49 @@
     function showResourceMessage(title, message) {
 
         openModal(title, message);
+
+    }
+
+
+    /* =========================================
+       INTERACTIVE ENERGY CARD FLIP
+    ========================================= */
+
+    function flipEnergyCard(card) {
+
+        card.classList.toggle("flipped");
+
+        if (card.classList.contains("flipped")) {
+
+            card.setAttribute(
+                "aria-label",
+                "Energy Explorer card revealed. Click to turn it back over."
+            );
+
+        } else {
+
+            card.setAttribute(
+                "aria-label",
+                "Turn over Energy Explorer card"
+            );
+
+        }
+
+    }
+
+
+    function handleCardKey(event, card) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            flipEnergyCard(card);
+
+        }
 
     }
 
