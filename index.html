@@ -1,1172 +1,2207 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>Energy Explorer | Grade 7 Natural Sciences</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<title>Energy Explorer | Grade 7 Natural Sciences</title>
 
-        /* =========================================
-           RESET & GENERAL
-        ========================================= */
+<!-- FONT AWESOME -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
+<style>
+
+    /* =========================================
+       RESET & GENERAL
+    ========================================= */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f7f9;
+        color: #1f2933;
+        line-height: 1.6;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    button {
+        font-family: inherit;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+
+    nav {
+        background: #102a43;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+    }
+
+    .nav-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 16px 0;
+    }
+
+    .logo {
+        font-size: 1.35rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .logo i {
+        color: #ffd166;
+        margin-right: 6px;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 24px;
+    }
+
+    .nav-links a {
+        color: white;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #ffd166;
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+        min-height: 90vh;
+        position: relative;
+        overflow: hidden;
+
+        color: white;
+
+        display: flex;
+        align-items: center;
+
+        text-align: center;
+
+        background: #102a43;
+    }
+
+
+    /* =========================================
+       HERO BACKGROUND SLIDESHOW
+    ========================================= */
+
+    .hero-collage {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        z-index: 0;
+
+        overflow: hidden;
+    }
+
+    .hero-collage img {
+        position: absolute;
+
+        top: 0;
+        left: 100%;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        display: block;
+
+        filter: saturate(0.95);
+
+        transition: left 1.2s ease-in-out;
+    }
+
+    .hero-collage img.active {
+        left: 0;
+    }
+
+    .hero-collage img.previous {
+        left: -100%;
+    }
+
+
+    /* =========================================
+       HERO OVERLAY
+    ========================================= */
+
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(16, 42, 67, 0.38),
+                rgba(29, 78, 137, 0.28)
+            );
+
+        z-index: 1;
+    }
+
+
+    .hero-content {
+        width: 90%;
+        max-width: 900px;
+        margin: auto;
+
+        position: relative;
+        z-index: 2;
+
+        text-shadow:
+            0 2px 8px rgba(0,0,0,0.45);
+    }
+
+    .hero-icon {
+        font-size: 75px;
+        margin-bottom: 15px;
+    }
+
+    .hero-icon i {
+        color: #ffd166;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        letter-spacing: 4px;
+        margin-bottom: 10px;
+    }
+
+    .hero h3 {
+        color: #ffd166;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 1.15rem;
+        max-width: 750px;
+        margin: auto;
+        margin-bottom: 35px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 14px 26px;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.3s;
+
+        text-shadow: none;
+    }
+
+    .btn-primary {
+        background: #ffd166;
+        color: #102a43;
+    }
+
+    .btn-secondary {
+        border: 2px solid white;
+        color: white;
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+    }
+
+
+    /* =========================================
+       GENERAL SECTIONS
+    ========================================= */
+
+    section {
+        padding: 80px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+        font-size: 2.5rem;
+        color: #102a43;
+        margin-bottom: 10px;
+    }
+
+    .section-title p {
+        max-width: 750px;
+        margin: auto;
+        color: #52606d;
+    }
+
+
+    /* =========================================
+       INTRO CARDS
+    ========================================= */
+
+    .intro-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .intro-card {
+        background: white;
+        padding: 30px 20px;
+        text-align: center;
+        border-radius: 15px;
+
+        box-shadow:
+            0 5px 20px rgba(0,0,0,0.08);
+
+        transition: 0.3s;
+    }
+
+    .intro-card:hover {
+        transform: translateY(-7px);
+    }
+
+    .intro-card .icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+        color: #1d4e89;
+    }
+
+    .intro-card h3 {
+        color: #102a43;
+        margin-bottom: 10px;
+    }
+
+
+    /* =========================================
+       ENERGY SOURCE CARDS
+    ========================================= */
+
+    .energy-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .energy-card {
+        background: white;
+        border-radius: 18px;
+        overflow: hidden;
+
+        box-shadow:
+            0 6px 20px rgba(0,0,0,0.10);
+
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .energy-card:hover {
+        transform: translateY(-8px);
+    }
+
+    .image-placeholder {
+        height: 180px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #d9eaf7,
+                #eef5fa
+            );
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 55px;
+        color: #486581;
+
+        overflow: hidden;
+    }
+
+    .image-placeholder img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        display: block;
+    }
+
+    .image-placeholder img.nuclear-image {
+        object-position: center 20%;
+        transform: scale(1.08);
+    }
+
+    .energy-info {
+        padding: 20px;
+    }
+
+    .energy-info h3 {
+        color: #102a43;
+        margin-bottom: 5px;
+    }
+
+    .energy-info p {
+        color: #627d98;
+        font-size: 0.95rem;
+    }
+
+    .badge {
+        display: inline-block;
+
+        margin-top: 12px;
+
+        padding: 5px 12px;
+
+        border-radius: 20px;
+
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+
+    .renewable-badge {
+        background: #d9f7e8;
+        color: #087f5b;
+    }
+
+    .nonrenewable-badge {
+        background: #fde2e2;
+        color: #c92a2a;
+    }
+
+
+    /* =========================================
+       THREE ENERGY PANELS
+    ========================================= */
+
+    .panel-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 25px;
+    }
+
+    .panel {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+
+        box-shadow:
+            0 6px 25px rgba(0,0,0,0.10);
+    }
+
+    .panel-header {
+        padding: 25px;
+        text-align: center;
+
+        background: #102a43;
+        color: white;
+    }
+
+    .panel-header h3 {
+        font-size: 1.4rem;
+    }
+
+    .panel-header i {
+        color: #ffd166;
+        margin-right: 8px;
+    }
+
+    .panel-body {
+        padding: 25px;
+    }
+
+    .panel-placeholder {
+        height: 230px;
+
+        border: 3px dashed #9fb3c8;
+        border-radius: 15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        color: #627d98;
+
+        background: #f8fafc;
+
+        margin-bottom: 20px;
+    }
+
+    .panel-list {
+        list-style: none;
+    }
+
+    .panel-list li {
+        padding: 8px 0;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .panel-list i {
+        color: #1d4e89;
+        width: 25px;
+    }
+
+
+    /* =========================================
+       CLASSIFICATION
+    ========================================= */
+
+    .classification {
+        background: #102a43;
+        color: white;
+    }
+
+    .classification .section-title h2 {
+        color: white;
+    }
+
+    .classification .section-title p {
+        color: #d9e2ec;
+    }
+
+    .classification-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .classification-card {
+        background: white;
+        color: #1f2933;
+
+        padding: 35px;
+        border-radius: 20px;
+    }
+
+    .classification-card h3 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        color: #102a43;
+    }
+
+    .classification-card h3 i {
+        color: #1d4e89;
+        margin-right: 8px;
+    }
+
+    .classification-card ul {
+        margin-left: 20px;
+    }
+
+
+    /* =========================================
+       ACTIVITY
+    ========================================= */
+
+    .activity-box {
+        background: white;
+
+        border-radius: 25px;
+
+        padding: 45px;
+        box-shadow:
+            0 7px 30px rgba(0,0,0,0.10);
+
+        text-align: center;
+
+        max-width: 950px;
+        margin: auto;
+    }
+
+    .activity-box > i {
+        font-size: 50px;
+        color: #1d4e89;
+        margin-bottom: 15px;
+    }
+
+    .activity-step {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 15px;
+
+        margin-top: 35px;
+    }
+
+    .step {
+        background: #eef5fa;
+
+        padding: 20px;
+
+        border-radius: 15px;
+    }
+
+    .step-number {
+        font-size: 30px;
+
+        font-weight: bold;
+
+        color: #1d4e89;
+    }
+
+
+    /* =========================================
+       OBJECTIVES
+    ========================================= */
+
+    .objectives {
+        background: #eef5fa;
+    }
+
+    .objectives-list {
+        max-width: 800px;
+        margin: auto;
+
+        display: grid;
+        gap: 15px;
+    }
+
+    .objective {
+        background: white;
+
+        padding: 20px;
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    .objective i {
+        color: #1d4e89;
+        margin-right: 10px;
+    }
+
+
+    /* =========================================
+       RESOURCES
+    ========================================= */
+
+    .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+    }
+
+    .resource {
+        background: white;
+
+        padding: 25px 20px;
+
+        border-radius: 18px;
+
+        text-align: center;
+
+        box-shadow:
+            0 5px 15px rgba(0,0,0,0.07);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        transition: 0.3s;
+    }
+
+    .resource:hover {
+        transform: translateY(-7px);
+    }
+
+    .resource-icon {
+        font-size: 40px;
+        margin-bottom: 12px;
+        color: #1d4e89;
+    }
+
+    .resource h3 {
+        color: #102a43;
+        margin-bottom: 10px;
+    }
+
+    .resource p {
+        color: #52606d;
+        font-size: 0.95rem;
+
+        flex-grow: 1;
+
+        margin-bottom: 20px;
+    }
+
+    .resource-button {
+        display: inline-block;
+
+        border: none;
+
+        background: #1d4e89;
+
+        color: white;
+
+        padding: 10px 18px;
+
+        border-radius: 20px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+        font-size: 0.9rem;
+    }
+
+    .resource-button:hover {
+        background: #102a43;
+
+        transform: translateY(-2px);
+    }
+
+
+    /* =========================================
+       RESOURCE COLOURS
+    ========================================= */
+
+    .resource-video .resource-icon {
+        color: #e63946;
+    }
+
+    .resource-booklet .resource-icon {
+        color: #6c5ce7;
+    }
+
+    .resource-hands-on .resource-icon {
+        color: #f4a261;
+    }
+
+    .resource-worksheet .resource-icon {
+        color: #2a9d8f;
+    }
+
+    .resource-game .resource-icon {
+        color: #e76f51;
+    }
+
+
+    /* =========================================
+       EDUCATIONAL VIDEO
+    ========================================= */
+
+    .video-resource {
+        background: white;
+
+        padding: 35px;
+
+        border-radius: 25px;
+
+        box-shadow:
+            0 7px 30px rgba(0,0,0,0.09);
+
+        margin-bottom: 40px;
+    }
+
+    .video-heading {
+        display: flex;
+
+        align-items: center;
+
+        gap: 20px;
+
+        margin-bottom: 25px;
+    }
+
+    .video-heading .resource-icon {
+        font-size: 45px;
+        color: #e63946;
+    }
+
+    .video-heading h3 {
+        font-size: 1.6rem;
+
+        color: #102a43;
+
+        margin-bottom: 4px;
+    }
+
+    .video-heading p {
+        color: #627d98;
+    }
+
+    .video-wrapper {
+        position: relative;
+
+        width: 100%;
+
+        padding-bottom: 56.25%;
+
+        height: 0;
+
+        overflow: hidden;
+
+        border-radius: 18px;
+
+        background: #081c2f;
+    }
+
+    .video-wrapper iframe {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+
+    }
+
+    .video-learning {
+        margin-top: 25px;
+
+        padding: 25px;
+
+        background: #eef5fa;
+
+        border-radius: 15px;
+    }
+
+    .video-learning h4 {
+        color: #102a43;
+
+        margin-bottom: 8px;
+
+        font-size: 1.2rem;
+    }
+
+    .think-question {
+        margin-top: 15px;
+
+        background: white;
+
+        padding: 18px;
+
+        border-left:
+            5px solid #ffd166;
+
+        border-radius: 8px;
+    }
+
+
+    /* =========================================
+       CURRICULUM ALIGNMENT
+    ========================================= */
+
+    .curriculum-box {
+        margin-top: 45px;
+
+        padding: 30px;
+
+        background: #102a43;
+
+        color: white;
+
+        border-radius: 20px;
+
+        display: flex;
+
+        gap: 25px;
+
+        align-items: flex-start;
+    }
+
+    .curriculum-icon {
+        font-size: 45px;
+        color: #ffd166;
+    }
+
+    .curriculum-box h3 {
+        font-size: 1.5rem;
+
+        margin-bottom: 12px;
+    }
+
+    .curriculum-box p {
+        color: #d9e2ec;
+
+        margin-bottom: 10px;
+    }
+
+    .curriculum-note {
+        font-size: 0.95rem;
+    }
+
+
+    /* =========================================
+       ABOUT AUTHOR
+    ========================================= */
+
+    .author-section {
+        background: white;
+    }
+
+    .author-card {
+        max-width: 1000px;
+
+        margin: auto;
+
+        display: grid;
+
+        grid-template-columns:
+            300px 1fr;
+
+        gap: 40px;
+
+        align-items: center;
+
+        background: #f8fafc;
+
+        padding: 40px;
+
+        border-radius: 25px;
+
+        box-shadow:
+            0 6px 25px rgba(0,0,0,0.08);
+    }
+
+    .author-photo {
+        height: 300px;
+
+        border-radius: 20px;
+
+        border: 3px dashed #9fb3c8;
+
+        background: #e8eef4;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+
+        color: #627d98;
+
+        padding: 20px;
+    }
+
+    .author-info h2 {
+        font-size: 2rem;
+
+        color: #102a43;
+
+        margin-bottom: 5px;
+    }
+
+    .author-role {
+        color: #1d4e89;
+
+        font-weight: bold;
+
+        margin-bottom: 20px;
+    }
+
+    .author-role i {
+        margin-right: 7px;
+    }
+
+    .quote {
+        margin-top: 20px;
+
+        padding: 20px;
+
+        background: white;
+
+        border-left:
+            5px solid #ffd166;
+
+        font-style: italic;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+        background: #081c2f;
+
+        color: white;
+
+        text-align: center;
+
+        padding: 40px 20px;
+    }
+
+    footer h3 {
+        font-size: 1.5rem;
+
+        margin-bottom: 10px;
+    }
+
+    footer h3 i {
+        color: #ffd166;
+        margin-right: 6px;
+    }
+
+    footer p {
+        color: #bcccdc;
+    }
+
+
+    /* =========================================
+       MODAL
+    ========================================= */
+
+    .modal {
+        display: none;
+
+        position: fixed;
+
+        z-index: 2000;
+
+        left: 0;
+        top: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background:
+            rgba(0,0,0,0.7);
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 20px;
+
+        overflow-y: auto;
+    }
+
+    .modal-content {
+        background: white;
+
+        max-width: 850px;
+
+        width: 100%;
+
+        max-height: 90vh;
+
+        overflow-y: auto;
+
+        padding: 40px;
+
+        border-radius: 20px;
+
+        position: relative;
+
+        animation:
+            pop 0.25s ease;
+    }
+
+    @keyframes pop {
+
+        from {
+            transform: scale(0.8);
+            opacity: 0;
         }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f7f9;
-            color: #1f2933;
-            line-height: 1.6;
+        to {
+            transform: scale(1);
+            opacity: 1;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+    }
+
+    .close {
+        position: absolute;
+
+        right: 20px;
+
+        top: 10px;
+
+        font-size: 30px;
+
+        cursor: pointer;
+
+        color: #102a43;
+    }
+
+    .modal-content h2 {
+        color: #102a43;
+
+        margin-bottom: 15px;
+    }
+
+    .modal-content h3 {
+        color: #1d4e89;
+
+        margin-top: 25px;
+
+        margin-bottom: 10px;
+    }
+
+    .modal-content ul,
+    .modal-content ol {
+        margin-left: 25px;
+
+        margin-bottom: 15px;
+    }
+
+    .modal-content li {
+        margin-bottom: 8px;
+    }
+
+    .modal-intro {
+        background: #eef5fa;
+
+        padding: 20px;
+
+        border-radius: 12px;
+
+        margin: 20px 0;
+    }
+
+    .example-placeholder {
+        min-height: 300px;
+
+        border: 3px dashed #9fb3c8;
+
+        border-radius: 15px;
+
+        background: #f8fafc;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+
+        color: #627d98;
+
+        padding: 25px;
+
+        margin: 20px 0;
+    }
+
+    .rubric-table {
+        width: 100%;
+
+        border-collapse: collapse;
+
+        margin-top: 15px;
+    }
+
+    .rubric-table th,
+    .rubric-table td {
+        border: 1px solid #d9e2ec;
+
+        padding: 10px;
+
+        text-align: left;
+    }
+
+    .rubric-table th {
+        background: #102a43;
+
+        color: white;
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1100px) {
+
+        .resources-grid {
+            grid-template-columns:
+                repeat(3, 1fr);
         }
 
-        button {
-            font-family: inherit;
+    }
+
+
+    @media (max-width: 1000px) {
+
+        .energy-grid {
+            grid-template-columns:
+                repeat(2, 1fr);
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
+        .intro-grid {
+            grid-template-columns:
+                repeat(2, 1fr);
         }
 
-
-        /* =========================================
-           NAVIGATION
-        ========================================= */
-
-        nav {
-            background: #102a43;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        .panel-grid {
+            grid-template-columns: 1fr;
         }
+
+    }
+
+
+    @media (max-width: 800px) {
 
         .nav-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
+            flex-direction: column;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 16px 0;
-        }
-
-        .logo {
-            font-size: 1.35rem;
-            font-weight: bold;
-            letter-spacing: 1px;
+            gap: 15px;
         }
 
         .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 24px;
-        }
-
-        .nav-links a {
-            color: white;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ffd166;
-        }
-
-
-        /* =========================================
-           HERO
-        ========================================= */
-
-        .hero {
-            min-height: 90vh;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #102a43,
-                    #1d4e89
-                );
-
-            color: white;
-
-            display: flex;
-            align-items: center;
-
-            text-align: center;
-        }
-
-        .hero-content {
-            width: 90%;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .hero-icon {
-            font-size: 75px;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            letter-spacing: 4px;
-            margin-bottom: 10px;
-        }
-
-        .hero h3 {
-            color: #ffd166;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            max-width: 750px;
-            margin: auto;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
             flex-wrap: wrap;
-        }
 
-        .btn {
-            display: inline-block;
-            padding: 14px 26px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: #ffd166;
-            color: #102a43;
-        }
-
-        .btn-secondary {
-            border: 2px solid white;
-            color: white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-
-        /* =========================================
-           GENERAL SECTIONS
-        ========================================= */
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: #102a43;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            max-width: 750px;
-            margin: auto;
-            color: #52606d;
-        }
-
-
-        /* =========================================
-           INTRO CARDS
-        ========================================= */
-
-        .intro-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .intro-card {
-            background: white;
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 15px;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.08);
-
-            transition: 0.3s;
-        }
-
-        .intro-card:hover {
-            transform: translateY(-7px);
-        }
-
-        .intro-card .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .intro-card h3 {
-            color: #102a43;
-            margin-bottom: 10px;
-        }
-
-
-        /* =========================================
-           ENERGY SOURCE CARDS
-        ========================================= */
-
-        .energy-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-        }
-
-        .energy-card {
-            background: white;
-            border-radius: 18px;
-            overflow: hidden;
-
-            box-shadow:
-                0 6px 20px rgba(0,0,0,0.10);
-
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .energy-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .image-placeholder {
-            height: 180px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #d9eaf7,
-                    #eef5fa
-                );
-
-            display: flex;
-            align-items: center;
             justify-content: center;
 
-            font-size: 55px;
-            color: #486581;
-        }
-
-        .energy-info {
-            padding: 20px;
-        }
-
-        .energy-info h3 {
-            color: #102a43;
-            margin-bottom: 5px;
-        }
-
-        .energy-info p {
-            color: #627d98;
-            font-size: 0.95rem;
-        }
-
-        .badge {
-            display: inline-block;
-
-            margin-top: 12px;
-
-            padding: 5px 12px;
-
-            border-radius: 20px;
-
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .renewable-badge {
-            background: #d9f7e8;
-            color: #087f5b;
-        }
-
-        .nonrenewable-badge {
-            background: #fde2e2;
-            color: #c92a2a;
-        }
-
-
-        /* =========================================
-           THREE ENERGY PANELS
-        ========================================= */
-
-        .panel-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 25px;
-        }
-
-        .panel {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-
-            box-shadow:
-                0 6px 25px rgba(0,0,0,0.10);
-        }
-
-        .panel-header {
-            padding: 25px;
-            text-align: center;
-
-            background: #102a43;
-            color: white;
-        }
-
-        .panel-header h3 {
-            font-size: 1.4rem;
-        }
-
-        .panel-body {
-            padding: 25px;
-        }
-
-        .panel-placeholder {
-            height: 230px;
-
-            border: 3px dashed #9fb3c8;
-            border-radius: 15px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            color: #627d98;
-
-            background: #f8fafc;
-
-            margin-bottom: 20px;
-        }
-
-        .panel-list {
-            list-style: none;
-        }
-
-        .panel-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-
-        /* =========================================
-           CLASSIFICATION
-        ========================================= */
-
-        .classification {
-            background: #102a43;
-            color: white;
-        }
-
-        .classification .section-title h2 {
-            color: white;
-        }
-
-        .classification .section-title p {
-            color: #d9e2ec;
+            gap: 12px;
         }
 
         .classification-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .classification-card {
-            background: white;
-            color: #1f2933;
-
-            padding: 35px;
-
-            border-radius: 20px;
-        }
-
-        .classification-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .classification-card ul {
-            margin-left: 20px;
-        }
-
-
-        /* =========================================
-           ACTIVITY
-        ========================================= */
-
-        .activity-box {
-            background: white;
-
-            border-radius: 25px;
-
-            padding: 45px;
-
-            box-shadow:
-                0 7px 30px rgba(0,0,0,0.10);
-
-            text-align: center;
-
-            max-width: 950px;
-            margin: auto;
+            grid-template-columns: 1fr;
         }
 
         .activity-step {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-
-            gap: 15px;
-
-            margin-top: 35px;
-        }
-
-        .step {
-            background: #eef5fa;
-
-            padding: 20px;
-
-            border-radius: 15px;
-        }
-
-        .step-number {
-            font-size: 30px;
-
-            font-weight: bold;
-
-            color: #1d4e89;
-        }
-
-
-        /* =========================================
-           OBJECTIVES
-        ========================================= */
-
-        .objectives {
-            background: #eef5fa;
-        }
-
-        .objectives-list {
-            max-width: 800px;
-            margin: auto;
-
-            display: grid;
-            gap: 15px;
-        }
-
-        .objective {
-            background: white;
-
-            padding: 20px;
-
-            border-radius: 12px;
-
-            box-shadow:
-                0 3px 10px rgba(0,0,0,0.05);
-        }
-
-
-        /* =========================================
-           RESOURCES
-        ========================================= */
-
-        .resources-grid {
-            display: grid;
-
             grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 20px;
-        }
-
-        .resource {
-            background: white;
-
-            padding: 25px;
-
-            border-radius: 15px;
-
-            text-align: center;
-
-            box-shadow:
-                0 5px 15px rgba(0,0,0,0.07);
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .resource-icon {
-            font-size: 40px;
-            margin-bottom: 12px;
-        }
-
-        .resource h3 {
-            color: #102a43;
-            margin-bottom: 10px;
-        }
-
-        .resource p {
-            color: #52606d;
-            font-size: 0.95rem;
-
-            flex-grow: 1;
-
-            margin-bottom: 20px;
-        }
-
-        .resource-button {
-            display: inline-block;
-
-            border: none;
-
-            background: #1d4e89;
-
-            color: white;
-
-            padding: 10px 18px;
-
-            border-radius: 20px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-
-            font-size: 0.9rem;
-        }
-
-        .resource-button:hover {
-            background: #102a43;
-
-            transform: translateY(-2px);
-        }
-
-
-        /* =========================================
-           EDUCATIONAL VIDEO
-        ========================================= */
-
-        .video-resource {
-            background: white;
-
-            padding: 35px;
-
-            border-radius: 25px;
-
-            box-shadow:
-                0 7px 30px rgba(0,0,0,0.09);
-
-            margin-bottom: 40px;
-        }
-
-        .video-heading {
-            display: flex;
-
-            align-items: center;
-
-            gap: 20px;
-
-            margin-bottom: 25px;
-        }
-
-        .video-heading .resource-icon {
-            font-size: 45px;
-        }
-
-        .video-heading h3 {
-            font-size: 1.6rem;
-
-            color: #102a43;
-
-            margin-bottom: 4px;
-        }
-
-        .video-heading p {
-            color: #627d98;
-        }
-
-        .video-wrapper {
-            position: relative;
-
-            width: 100%;
-
-            padding-bottom: 56.25%;
-
-            height: 0;
-
-            overflow: hidden;
-
-            border-radius: 18px;
-
-            background: #081c2f;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 100%;
-
-            border: none;
-        }
-
-        .video-learning {
-            margin-top: 25px;
-
-            padding: 25px;
-
-            background: #eef5fa;
-
-            border-radius: 15px;
-        }
-
-        .video-learning h4 {
-            color: #102a43;
-
-            margin-bottom: 8px;
-
-            font-size: 1.2rem;
-        }
-
-        .think-question {
-            margin-top: 15px;
-
-            background: white;
-
-            padding: 18px;
-
-            border-left:
-                5px solid #ffd166;
-
-            border-radius: 8px;
-        }
-
-
-        /* =========================================
-           CURRICULUM ALIGNMENT
-        ========================================= */
-
-        .curriculum-box {
-            margin-top: 45px;
-
-            padding: 30px;
-
-            background: #102a43;
-
-            color: white;
-
-            border-radius: 20px;
-
-            display: flex;
-
-            gap: 25px;
-
-            align-items: flex-start;
-        }
-
-        .curriculum-icon {
-            font-size: 45px;
-        }
-
-        .curriculum-box h3 {
-            font-size: 1.5rem;
-
-            margin-bottom: 12px;
-        }
-
-        .curriculum-box p {
-            color: #d9e2ec;
-
-            margin-bottom: 10px;
-        }
-
-        .curriculum-note {
-            font-size: 0.95rem;
-        }
-
-
-        /* =========================================
-           ABOUT AUTHOR
-        ========================================= */
-
-        .author-section {
-            background: white;
+                repeat(2, 1fr);
         }
 
         .author-card {
-            max-width: 1000px;
+            grid-template-columns: 1fr;
 
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                300px 1fr;
-
-            gap: 40px;
-
-            align-items: center;
-
-            background: #f8fafc;
-
-            padding: 40px;
-
-            border-radius: 25px;
-
-            box-shadow:
-                0 6px 25px rgba(0,0,0,0.08);
+            text-align: center;
         }
 
         .author-photo {
-            height: 300px;
+            max-width: 300px;
 
-            border-radius: 20px;
-
-            border: 3px dashed #9fb3c8;
-
-            background: #e8eef4;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
-
-            color: #627d98;
-
-            padding: 20px;
+            margin: auto;
         }
 
-        .author-info h2 {
-            font-size: 2rem;
-
-            color: #102a43;
-
-            margin-bottom: 5px;
-        }
-
-        .author-role {
-            color: #1d4e89;
-
-            font-weight: bold;
-
-            margin-bottom: 20px;
-        }
-
-        .quote {
-            margin-top: 20px;
-
-            padding: 20px;
-
-            background: white;
-
-            border-left:
-                5px solid #ffd166;
-
-            font-style: italic;
-        }
+    }
 
 
-        /* =========================================
-           FOOTER
-        ========================================= */
+    @media (max-width: 600px) {
 
-        footer {
-            background: #081c2f;
+        /*
+           The hero slideshow remains a single
+           full-screen image on mobile.
+        */
 
-            color: white;
-
-            text-align: center;
-
-            padding: 40px 20px;
-        }
-
-        footer h3 {
-            font-size: 1.5rem;
-
-            margin-bottom: 10px;
-        }
-
-        footer p {
-            color: #bcccdc;
-        }
-
-
-        /* =========================================
-           MODAL
-        ========================================= */
-
-        .modal {
-            display: none;
-
-            position: fixed;
-
-            z-index: 2000;
-
-            left: 0;
-            top: 0;
-
+        .hero-collage {
             width: 100%;
             height: 100%;
+        }
 
-            background:
-                rgba(0,0,0,0.7);
+        .hero h1 {
+            font-size: 2.5rem;
+        }
 
-            align-items: center;
+        .hero h3 {
+            font-size: 1.2rem;
+        }
 
-            justify-content: center;
+        .intro-grid,
+        .energy-grid,
+        .resources-grid {
+            grid-template-columns: 1fr;
+        }
 
+        .activity-step {
+            grid-template-columns: 1fr;
+        }
+
+        .activity-box {
+            padding: 25px;
+        }
+
+        .video-resource {
             padding: 20px;
+        }
+
+        .video-heading {
+            align-items: flex-start;
+        }
+
+        .curriculum-box {
+            flex-direction: column;
         }
 
         .modal-content {
-            background: white;
-
-            max-width: 600px;
-
-            width: 100%;
-
-            padding: 40px;
-
-            border-radius: 20px;
-
-            position: relative;
-
-            animation:
-                pop 0.25s ease;
+            padding: 25px;
         }
 
-        @keyframes pop {
+    }
 
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
 
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
+    /* =========================================
+       ACCESSIBILITY
+    ========================================= */
 
+    @media (prefers-reduced-motion: reduce) {
+
+        .hero-collage img {
+            transition: none;
         }
 
-        .close {
-            position: absolute;
-
-            right: 20px;
-
-            top: 10px;
-
-            font-size: 30px;
-
-            cursor: pointer;
+        .hero-collage img {
+            left: 100%;
         }
 
-        .modal-content h2 {
-            color: #102a43;
-
-            margin-bottom: 15px;
+        .hero-collage img:first-child {
+            left: 0;
         }
 
+    }
 
-        /* =========================================
-           RESPONSIVE
-        ========================================= */
-
-        @media (max-width: 1000px) {
-
-            .energy-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .resources-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .intro-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .panel-grid {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-
-        @media (max-width: 800px) {
-
-            .nav-container {
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-
-                justify-content: center;
-
-                gap: 12px;
-            }
-
-            .classification-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .activity-step {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .author-card {
-                grid-template-columns: 1fr;
-
-                text-align: center;
-            }
-
-            .author-photo {
-                max-width: 300px;
-
-                margin: auto;
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero h3 {
-                font-size: 1.2rem;
-            }
-
-            .intro-grid,
-            .energy-grid,
-            .resources-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .activity-step {
-                grid-template-columns: 1fr;
-            }
-
-            .activity-box {
-                padding: 25px;
-            }
-
-            .video-resource {
-                padding: 20px;
-            }
-
-            .video-heading {
-                align-items: flex-start;
-            }
-
-            .curriculum-box {
-                flex-direction: column;
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
-
 
 <body>
 
 
-    <!-- =========================================
-         NAVIGATION
-    ========================================= -->
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
-    <nav>
+<nav>
 
-        <div class="nav-container">
+    <div class="nav-container">
 
-            <div class="logo">
-                ⚡ ENERGY EXPLORER
-            </div>
+        <div class="logo">
 
-            <ul class="nav-links">
+            <i class="fa-solid fa-bolt"></i>
 
-                <li>
-                    <a href="#home">Home</a>
-                </li>
-
-                <li>
-                    <a href="#energy">Energy Sources</a>
-                </li>
-
-                <li>
-                    <a href="#panels">Explore</a>
-                </li>
-
-                <li>
-                    <a href="#activity">Activity</a>
-                </li>
-
-                <li>
-                    <a href="#resources">Resources</a>
-                </li>
-
-                <li>
-                    <a href="#author">About</a>
-                </li>
-
-            </ul>
+            ENERGY EXPLORER
 
         </div>
 
-    </nav>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#energy">Energy Sources</a>
+            </li>
+
+            <li>
+                <a href="#panels">Explore</a>
+            </li>
+
+            <li>
+                <a href="#activity">Activity</a>
+            </li>
+
+            <li>
+                <a href="#resources">Resources</a>
+            </li>
+
+            <li>
+                <a href="#author">About</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
 
 
+<!-- =========================================
+     HERO
+========================================= -->
 
-    <!-- =========================================
-         HOME / HERO
-    ========================================= -->
+<section class="hero" id="home">
 
-    <section class="hero" id="home">
+    <div class="hero-collage">
 
-        <div class="hero-content">
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Solar_panels-7.jpg"
+            alt="Solar panels"
+            class="active">
 
-            <div class="hero-icon">
-                ⚡
-            </div>
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Wind_farm_turbines.jpg"
+            alt="Wind turbines">
 
-            <h1>
-                ENERGY EXPLORER
-            </h1>
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Hydro_electric_dam_building.jpg"
+            alt="Hydroelectric dam">
 
-            <h3>
-                Discover • Classify • Understand
-            </h3>
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Coal_power_plant_(52135634496).jpg"
+            alt="Coal power plant">
+
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawasaki_natural_gas_power_station.jpg"
+            alt="Natural gas power station">
+
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nuclear_power_plant_towers.jpg"
+            alt="Nuclear power plant">
+
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Biomass_Power_Plant2.jpg"
+            alt="Biomass power plant">
+
+    </div>
+
+
+    <div class="hero-overlay"></div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-icon">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <h1>
+            ENERGY EXPLORER
+        </h1>
+
+        <h3>
+            Discover • Classify • Understand
+        </h3>
+
+        <p>
+            An interactive Grade 7 Natural Sciences learning experience
+            exploring energy sources and the difference between renewable
+            and non-renewable energy.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                href="#energy"
+                class="btn btn-primary">
+
+                Explore Energy
+
+            </a>
+
+            <a
+                href="#activity"
+                class="btn btn-secondary">
+
+                Explore the Activity
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     INTRODUCTION
+========================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Become an Energy Explorer
+            </h2>
 
             <p>
-                An interactive Grade 7 Natural Sciences learning experience
-                exploring energy sources and the difference between renewable
-                and non-renewable energy.
+                Energy is all around us. Explore different energy sources,
+                classify them and explain how they are used in everyday life.
             </p>
-
-            <div class="buttons">
-
-                <a
-                    href="#energy"
-                    class="btn btn-primary">
-
-                    Explore Energy
-
-                </a>
-
-                <a
-                    href="#activity"
-                    class="btn btn-secondary">
-
-                    Explore the Activity
-
-                </a>
-
-            </div>
 
         </div>
 
-    </section>
 
+        <div class="intro-grid">
 
+            <div class="intro-card">
 
-    <!-- =========================================
-         INTRODUCTION
-    ========================================= -->
+                <div class="icon">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
 
-    <section>
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>
-                    Become an Energy Explorer
-                </h2>
+                <h3>
+                    Explore
+                </h3>
 
                 <p>
-                    Energy is all around us. Explore different energy sources,
-                    classify them and explain how they are used in everyday life.
+                    Discover different sources of energy found around us.
                 </p>
 
             </div>
 
 
-            <div class="intro-grid">
+            <div class="intro-card">
+
+                <div class="icon">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+
+                <h3>
+                    Think
+                </h3>
+
+                <p>
+                    Think about where energy comes from and how it is used.
+                </p>
+
+            </div>
 
 
-                <div class="intro-card">
+            <div class="intro-card">
 
-                    <div class="icon">
-                        🔎
-                    </div>
+                <div class="icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+
+                <h3>
+                    Classify
+                </h3>
+
+                <p>
+                    Decide whether an energy source is renewable or
+                    non-renewable.
+                </p>
+
+            </div>
+
+
+            <div class="intro-card">
+
+                <div class="icon">
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+
+                <h3>
+                    Explain
+                </h3>
+
+                <p>
+                    Explain your thinking and support your classification.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ENERGY SOURCES
+========================================= -->
+
+<section id="energy">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Energy Sources
+            </h2>
+
+            <p>
+                Click on an energy source to learn more about it.
+            </p>
+
+        </div>
+
+
+        <div class="energy-grid">
+
+
+            <!-- SOLAR -->
+
+            <div
+                class="energy-card"
+                onclick="openModal(
+                    'Solar Energy',
+                    'Solar energy comes from the Sun. Solar panels can capture sunlight and convert it into electrical energy. Solar energy is renewable because sunlight is naturally replenished.'
+                )">
+
+                <div class="image-placeholder">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Solar_panels-7.jpg"
+                        alt="Solar panels">
+
+                </div>
+
+                <div class="energy-info">
 
                     <h3>
-                        Explore
+                        Solar Energy
                     </h3>
 
                     <p>
-                        Discover different sources of energy found around us.
+                        Energy from the Sun.
+                    </p>
+
+                    <span class="badge renewable-badge">
+                        Renewable
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- WIND -->
+
+            <div
+                class="energy-card"
+                onclick="openModal(
+                    'Wind Energy',
+                    'Wind energy uses the movement of air to generate electricity. Wind turbines convert the movement of wind into electrical energy.'
+                )">
+
+                <div class="image-placeholder">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Wind_farm_turbines.jpg"
+                        alt="Wind turbines">
+
+                </div>
+
+                <div class="energy-info">
+
+                    <h3>
+                        Wind Energy
+                    </h3>
+
+                    <p>
+                        Energy from moving air.
+                    </p>
+
+                    <span class="badge renewable-badge">
+                        Renewable
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- HYDROELECTRIC -->
+
+            <div
+                class="energy-card"
+                onclick="openModal(
+                    'Hydroelectric Energy',
+                    'Hydroelectric energy uses moving water to generate electricity. Water flowing through turbines causes them to rotate and produce electrical energy.'
+                )">
+
+                <div class="image-placeholder">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Hydro_electric_dam_building.jpg"
+                        alt="Hydroelectric dam">
+
+                </div>
+
+                <div class="energy-info">
+
+                    <h3>
+                        Hydroelectric Energy
+                    </h3>
+
+                    <p>
+                        Energy from moving water.
+                    </p>
+
+                    <span class="badge renewable-badge">
+                        Renewable
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- COAL -->
+
+            <div
+                class="energy-card"
+                onclick="openModal(
+                    'Coal',
+                    'Coal is a fossil fuel that formed from the remains of plants over millions of years. It is classified as non-renewable because it takes a very long time to form.'
+                )">
+
+                <div class="image-placeholder">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Coal_power_plant_(52135634496).jpg"
+                        alt="Coal power plant">
+
+                </div>
+
+                <div class="energy-info">
+
+                    <h3>
+                        Coal
+                    </h3>
+
+                    <p>
+                        A fossil fuel.
+                    </p>
+
+                    <span class="badge nonrenewable-badge">
+                        Non-renewable
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- NATURAL GAS -->
+
+            <div
+                class="energy-card"
+                onclick="openModal(
+                    'Natural Gas',
+                    'Natural gas is a fossil fuel found underground. It can be burned to release energy and generate electricity. It is non-renewable because it takes extremely long periods to form.'
+                )">
+
+                <div class="image-placeholder">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawasaki_natural_gas_power_station.jpg"
+                        alt="Natural gas power station">
+
+                </div>
+
+                <div class="energy-info">
+
+                    <h3>
+                        Natural Gas
+                    </h3>
+
+                    <p>
+                        A fossil fuel found underground.
+                    </p>
+
+                    <span class="badge nonrenewable-badge">
+                        Non-renewable
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- NUCLEAR -->
+
+            <div
+                class="energy-card"
+                onclick="openModal(
+                    'Nuclear Energy',
+                    'Nuclear energy is released from atoms, commonly using uranium as a fuel. Uranium is a limited resource, so nuclear energy is classified as non-renewable.'
+                )">
+
+                <div class="image-placeholder">
+
+                    <img
+                        class="nuclear-image"
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nuclear_power_plant_towers.jpg"
+                        alt="Nuclear power plant">
+
+                </div>
+
+                <div class="energy-info">
+
+                    <h3>
+                        Nuclear Energy
+                    </h3>
+
+                    <p>
+                        Energy released from atoms.
+                    </p>
+
+                    <span class="badge nonrenewable-badge">
+                        Non-renewable
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BIOMASS -->
+
+            <div
+                class="energy-card"
+                onclick="openModal(
+                    'Biomass',
+                    'Biomass energy comes from organic material such as plant and animal matter. Biomass is considered renewable when the organic resources are replaced at a sustainable rate.'
+                )">
+
+                <div class="image-placeholder">
+
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Biomass_Power_Plant2.jpg"
+                        alt="Biomass power plant">
+
+                </div>
+
+                <div class="energy-info">
+
+                    <h3>
+                        Biomass
+                    </h3>
+
+                    <p>
+                        Energy from organic material.
+                    </p>
+
+                    <span class="badge renewable-badge">
+                        Renewable
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     THREE BOARD PANELS
+========================================= -->
+
+<section id="panels">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Explore the Energy Explorer Board
+            </h2>
+
+            <p>
+                The digital website complements the physical Energy Explorer
+                learning activity and its three main sections.
+            </p>
+
+        </div>
+
+
+        <div class="panel-grid">
+
+
+            <!-- PANEL 1 -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h3>
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                        Energy Sources
+
+                    </h3>
+
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="panel-placeholder">
+
+                        <div>
+
+                            <strong>
+                                IMAGE PLACEHOLDER
+                            </strong>
+
+                            <br><br>
+
+                            Landscape image of the
+                            seven Energy Source card frames.
+
+                        </div>
+
+                    </div>
+
+                    <ul class="panel-list">
+
+                        <li>
+                            <i class="fa-solid fa-sun"></i>
+                            Solar Energy
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-wind"></i>
+                            Wind Energy
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-droplet"></i>
+                            Hydroelectric Energy
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-mountain"></i>
+                            Coal
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-fire"></i>
+                            Natural Gas
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-atom"></i>
+                            Nuclear Energy
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-leaf"></i>
+                            Biomass
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- PANEL 2 -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h3>
+
+                        <i class="fa-solid fa-recycle"></i>
+
+                        Renewable Energy
+
+                    </h3>
+
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="panel-placeholder">
+
+                        <div>
+
+                            <strong>
+                                IMAGE PLACEHOLDER
+                            </strong>
+
+                            <br><br>
+
+                            Portrait Renewable Energy
+                            panel goes here.
+
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Renewable energy sources are naturally replenished
+                        and can be used repeatedly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PANEL 3 -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h3>
+
+                        <i class="fa-solid fa-oil-well"></i>
+
+                        Non-renewable Energy
+
+                    </h3>
+
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="panel-placeholder">
+
+                        <div>
+
+                            <strong>
+                                IMAGE PLACEHOLDER
+                            </strong>
+
+                            <br><br>
+
+                            Portrait Non-renewable Energy
+                            panel goes here.
+
+                        </div>
+
+                    </div>
+
+                    <p>
+                        Non-renewable energy sources are limited and take
+                        extremely long periods to form.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CLASSIFICATION
+========================================= -->
+
+<section class="classification">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Renewable vs Non-renewable
+            </h2>
+
+            <p>
+                Can you explain why an energy source belongs in a particular
+                category?
+            </p>
+
+        </div>
+
+
+        <div class="classification-grid">
+
+
+            <div class="classification-card">
+
+                <h3>
+
+                    <i class="fa-solid fa-recycle"></i>
+
+                    Renewable Energy
+
+                </h3>
+
+                <p>
+                    Renewable energy comes from sources that are naturally
+                    replenished over relatively short periods.
+                </p>
+
+                <br>
+
+                <ul>
+
+                    <li>
+                        Sunlight
+                    </li>
+
+                    <li>
+                        Wind
+                    </li>
+
+                    <li>
+                        Moving water
+                    </li>
+
+                    <li>
+                        Biomass
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="classification-card">
+
+                <h3>
+
+                    <i class="fa-solid fa-oil-well"></i>
+
+                    Non-renewable Energy
+
+                </h3>
+
+                <p>
+                    Non-renewable energy comes from resources that are
+                    limited and take extremely long periods to form.
+                </p>
+
+                <br>
+
+                <ul>
+
+                    <li>
+                        Coal
+                    </li>
+
+                    <li>
+                        Natural gas
+                    </li>
+
+                    <li>
+                        Nuclear fuels such as uranium
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ACTIVITY
+========================================= -->
+
+<section id="activity">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Energy Explorer Activity
+            </h2>
+
+            <p>
+                Think like an Energy Explorer!
+            </p>
+
+        </div>
+
+
+        <div class="activity-box">
+
+            <i class="fa-solid fa-gamepad"></i>
+
+            <h2>
+                Choose • Think • Classify • Explain
+            </h2>
+
+            <p>
+                Use the energy cards from the physical activity to explore
+                different energy sources. Select a card, classify it and
+                explain your reasoning to your group.
+            </p>
+
+
+            <div class="activity-step">
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Choose
+                    </h3>
+
+                    <p>
+                        Pick an energy source card.
                     </p>
 
                 </div>
 
 
-                <div class="intro-card">
+                <div class="step">
 
-                    <div class="icon">
-                        💭
+                    <div class="step-number">
+                        2
                     </div>
 
                     <h3>
@@ -1174,16 +2209,16 @@
                     </h3>
 
                     <p>
-                        Think about where energy comes from and how it is used.
+                        Consider where the energy comes from.
                     </p>
 
                 </div>
 
 
-                <div class="intro-card">
+                <div class="step">
 
-                    <div class="icon">
-                        ♻️
+                    <div class="step-number">
+                        3
                     </div>
 
                     <h3>
@@ -1191,17 +2226,16 @@
                     </h3>
 
                     <p>
-                        Decide whether an energy source is renewable or
-                        non-renewable.
+                        Place it in the correct category.
                     </p>
 
                 </div>
 
 
-                <div class="intro-card">
+                <div class="step">
 
-                    <div class="icon">
-                        💡
+                    <div class="step-number">
+                        4
                     </div>
 
                     <h3>
@@ -1209,1277 +2243,1183 @@
                     </h3>
 
                     <p>
-                        Explain your thinking and support your classification.
+                        Give a reason for your decision.
                     </p>
 
                 </div>
 
 
             </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         ENERGY SOURCES
-    ========================================= -->
-
-    <section id="energy">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>
-                    Energy Sources
-                </h2>
-
-                <p>
-                    Click on an energy source to learn more about it.
-                </p>
-
-            </div>
-
-
-            <div class="energy-grid">
-
-
-                <!-- SOLAR -->
-
-                <div
-                    class="energy-card"
-                    onclick="openModal(
-                        'Solar Energy',
-                        'Solar energy comes from the Sun. Solar panels can capture sunlight and convert it into electrical energy. Solar energy is renewable because sunlight is naturally replenished.'
-                    )">
-
-                    <div class="image-placeholder">
-                        ☀️
-                    </div>
-
-                    <div class="energy-info">
-
-                        <h3>
-                            Solar Energy
-                        </h3>
-
-                        <p>
-                            Energy from the Sun.
-                        </p>
-
-                        <span class="badge renewable-badge">
-                            Renewable
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- WIND -->
-
-                <div
-                    class="energy-card"
-                    onclick="openModal(
-                        'Wind Energy',
-                        'Wind energy uses the movement of air to generate electricity. Wind turbines convert the movement of wind into electrical energy.'
-                    )">
-
-                    <div class="image-placeholder">
-                        💨
-                    </div>
-
-                    <div class="energy-info">
-
-                        <h3>
-                            Wind Energy
-                        </h3>
-
-                        <p>
-                            Energy from moving air.
-                        </p>
-
-                        <span class="badge renewable-badge">
-                            Renewable
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- HYDROELECTRIC -->
-
-                <div
-                    class="energy-card"
-                    onclick="openModal(
-                        'Hydroelectric Energy',
-                        'Hydroelectric energy uses moving water to generate electricity. Water flowing through turbines causes them to rotate and produce electrical energy.'
-                    )">
-
-                    <div class="image-placeholder">
-                        💧
-                    </div>
-
-                    <div class="energy-info">
-
-                        <h3>
-                            Hydroelectric Energy
-                        </h3>
-
-                        <p>
-                            Energy from moving water.
-                        </p>
-
-                        <span class="badge renewable-badge">
-                            Renewable
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- COAL -->
-
-                <div
-                    class="energy-card"
-                    onclick="openModal(
-                        'Coal',
-                        'Coal is a fossil fuel that formed from the remains of plants over millions of years. It is classified as non-renewable because it takes a very long time to form.'
-                    )">
-
-                    <div class="image-placeholder">
-                        ⛏️
-                    </div>
-
-                    <div class="energy-info">
-
-                        <h3>
-                            Coal
-                        </h3>
-
-                        <p>
-                            A fossil fuel.
-                        </p>
-
-                        <span class="badge nonrenewable-badge">
-                            Non-renewable
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- NATURAL GAS -->
-
-                <div
-                    class="energy-card"
-                    onclick="openModal(
-                        'Natural Gas',
-                        'Natural gas is a fossil fuel found underground. It can be burned to release energy and is classified as non-renewable because it takes millions of years to form.'
-                    )">
-
-                    <div class="image-placeholder">
-                        🔥
-                    </div>
-
-                    <div class="energy-info">
-
-                        <h3>
-                            Natural Gas
-                        </h3>
-
-                        <p>
-                            A fossil fuel found underground.
-                        </p>
-
-                        <span class="badge nonrenewable-badge">
-                            Non-renewable
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- NUCLEAR -->
-
-                <div
-                    class="energy-card"
-                    onclick="openModal(
-                        'Nuclear Energy',
-                        'Nuclear energy is released from atoms. Nuclear power stations use nuclear fuels such as uranium to generate heat, which can be used to produce electricity.'
-                    )">
-
-                    <div class="image-placeholder">
-                        ⚛️
-                    </div>
-
-                    <div class="energy-info">
-
-                        <h3>
-                            Nuclear Energy
-                        </h3>
-
-                        <p>
-                            Energy released from atoms.
-                        </p>
-
-                        <span class="badge nonrenewable-badge">
-                            Non-renewable
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- BIOMASS -->
-
-                <div
-                    class="energy-card"
-                    onclick="openModal(
-                        'Biomass Energy',
-                        'Biomass energy comes from organic material such as plants and other biological material. Biomass can be renewable when the material is replaced sustainably.'
-                    )">
-
-                    <div class="image-placeholder">
-                        🌱
-                    </div>
-
-                    <div class="energy-info">
-
-                        <h3>
-                            Biomass
-                        </h3>
-
-                        <p>
-                            Energy from organic material.
-                        </p>
-
-                        <span class="badge renewable-badge">
-                            Renewable
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         THREE BOARD PANELS
-    ========================================= -->
-
-    <section id="panels">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>
-                    Explore the Energy Explorer Board
-                </h2>
-
-                <p>
-                    The digital website complements the physical Energy Explorer
-                    learning activity and its three main sections.
-                </p>
-
-            </div>
-
-
-            <div class="panel-grid">
-
-
-                <!-- PANEL 1 -->
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-                            ⚡ Energy Sources
-                        </h3>
-
-                    </div>
-
-                    <div class="panel-body">
-
-                        <div class="panel-placeholder">
-
-                            <div>
-
-                                <strong>
-                                    IMAGE PLACEHOLDER
-                                </strong>
-
-                                <br><br>
-
-                                Landscape image of the
-                                seven Energy Source card frames.
-
-                            </div>
-
-                        </div>
-
-                        <ul class="panel-list">
-
-                            <li>
-                                ☀️ Solar Energy
-                            </li>
-
-                            <li>
-                                💨 Wind Energy
-                            </li>
-
-                            <li>
-                                💧 Hydroelectric Energy
-                            </li>
-
-                            <li>
-                                ⛏️ Coal
-                            </li>
-
-                            <li>
-                                🔥 Natural Gas
-                            </li>
-
-                            <li>
-                                ⚛️ Nuclear Energy
-                            </li>
-
-                            <li>
-                                🌱 Biomass
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- PANEL 2 -->
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-                            ♻️ Renewable Energy
-                        </h3>
-
-                    </div>
-
-                    <div class="panel-body">
-
-                        <div class="panel-placeholder">
-
-                            <div>
-
-                                <strong>
-                                    IMAGE PLACEHOLDER
-                                </strong>
-
-                                <br><br>
-
-                                Portrait Renewable Energy
-                                panel goes here.
-
-                            </div>
-
-                        </div>
-
-                        <p>
-                            Renewable energy sources are naturally replenished
-                            and can be used repeatedly.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- PANEL 3 -->
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <h3>
-                            ⛏️ Non-renewable Energy
-                        </h3>
-
-                    </div>
-
-                    <div class="panel-body">
-
-                        <div class="panel-placeholder">
-
-                            <div>
-
-                                <strong>
-                                    IMAGE PLACEHOLDER
-                                </strong>
-
-                                <br><br>
-
-                                Portrait Non-renewable Energy
-                                panel goes here.
-
-                            </div>
-
-                        </div>
-
-                        <p>
-                            Non-renewable energy sources are limited and take
-                            extremely long periods to form.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         CLASSIFICATION
-    ========================================= -->
-
-    <section class="classification">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>
-                    Renewable vs Non-renewable
-                </h2>
-
-                <p>
-                    Can you explain why an energy source belongs in a particular
-                    category?
-                </p>
-
-            </div>
-
-
-            <div class="classification-grid">
-
-
-                <div class="classification-card">
-
-                    <h3>
-                        ♻️ Renewable Energy
-                    </h3>
-
-                    <p>
-                        Renewable energy comes from sources that are naturally
-                        replenished over relatively short periods.
-                    </p>
-
-                    <br>
-
-                    <ul>
-
-                        <li>
-                            Sunlight
-                        </li>
-
-                        <li>
-                            Wind
-                        </li>
-
-                        <li>
-                            Moving water
-                        </li>
-
-                        <li>
-                            Biomass
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <div class="classification-card">
-
-                    <h3>
-                        ⛏️ Non-renewable Energy
-                    </h3>
-
-                    <p>
-                        Non-renewable energy comes from resources that are
-                        limited and take extremely long periods to form.
-                    </p>
-
-                    <br>
-
-                    <ul>
-
-                        <li>
-                            Coal
-                        </li>
-
-                        <li>
-                            Natural gas
-                        </li>
-
-                        <li>
-                            Nuclear fuels such as uranium
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         ACTIVITY
-    ========================================= -->
-
-    <section id="activity">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>
-                    🎮 Energy Explorer Activity
-                </h2>
-
-                <p>
-                    Think like an Energy Explorer!
-                </p>
-
-            </div>
-
-
-            <div class="activity-box">
-
-                <h2>
-                    Choose • Think • Classify • Explain
-                </h2>
-
-                <p>
-
-                    Use the energy cards from the physical activity to explore
-                    different energy sources. Select a card, classify it and
-                    explain your reasoning to your group.
-
-                </p>
-
-
-                <div class="activity-step">
-
-
-                    <div class="step">
-
-                        <div class="step-number">
-                            1
-                        </div>
-
-                        <h3>
-                            Choose
-                        </h3>
-
-                        <p>
-                            Pick an energy source card.
-                        </p>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="step-number">
-                            2
-                        </div>
-
-                        <h3>
-                            Think
-                        </h3>
-
-                        <p>
-                            Consider where the energy comes from.
-                        </p>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="step-number">
-                            3
-                        </div>
-
-                        <h3>
-                            Classify
-                        </h3>
-
-                        <p>
-                            Place it in the correct category.
-                        </p>
-
-                    </div>
-
-
-                    <div class="step">
-
-                        <div class="step-number">
-                            4
-                        </div>
-
-                        <h3>
-                            Explain
-                        </h3>
-
-                        <p>
-                            Give a reason for your decision.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         LEARNING OBJECTIVES
-    ========================================= -->
-
-    <section class="objectives">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>
-                    🎯 Learning Objectives
-                </h2>
-
-                <p>
-                    By the end of the activity, learners should be able to:
-                </p>
-
-            </div>
-
-
-            <div class="objectives-list">
-
-
-                <div class="objective">
-                    🔹 Identify different energy sources.
-                </div>
-
-
-                <div class="objective">
-                    🔹 Describe how different energy sources can be used.
-                </div>
-
-
-                <div class="objective">
-                    🔹 Classify energy sources as renewable or non-renewable.
-                </div>
-
-
-                <div class="objective">
-                    🔹 Explain the reasoning behind their classifications.
-                </div>
-
-
-                <div class="objective">
-                    🔹 Communicate and discuss scientific ideas with others.
-                </div>
-
-
-                <div class="objective">
-                    🔹 Connect classroom learning with energy use in everyday life.
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         LEARNING RESOURCES
-    ========================================= -->
-
-    <section id="resources">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>
-                    📚 Learning Resources
-                </h2>
-
-                <p>
-                    Explore videos, curriculum references and additional
-                    learning resources to deepen your understanding of energy.
-                </p>
-
-            </div>
-
-
-
-            <!-- =================================
-                 EDUCATIONAL VIDEO
-            ================================= -->
-
-            <div class="video-resource">
-
-                <div class="video-heading">
-
-                    <span class="resource-icon">
-                        🎥
-                    </span>
-
-                    <div>
-
-                        <h3>
-                            Educational Video
-                        </h3>
-
-                        <p>
-                            Renewable and Non-renewable Resources
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="video-wrapper">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/axCR3uIn3Vs"
-                        title="Renewable and Non-renewable Resources"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-
-                </div>
-
-
-                <div class="video-learning">
-
-                    <h4>
-                        💡 Think While You Watch
-                    </h4>
-
-                    <p>
-                        As you watch the video, think about the differences
-                        between renewable and non-renewable energy sources.
-                    </p>
-
-
-                    <div class="think-question">
-
-                        <strong>
-                            🔎 Explorer Question:
-                        </strong>
-
-                        <br>
-
-                        What makes an energy source renewable or
-                        non-renewable?
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- =================================
-                 RESOURCE CARDS
-            ================================= -->
-
-            <div class="resources-grid">
-
-
-                <!-- CAPS -->
-
-                <div class="resource">
-
-                    <div class="resource-icon">
-                        📖
-                    </div>
-
-                    <h3>
-                        CAPS Curriculum
-                    </h3>
-
-                    <p>
-                        Grade 7 Natural Sciences: Energy and Change,
-                        with a focus on Sources of Energy and the
-                        classification of renewable and non-renewable
-                        energy sources.
-                    </p>
-
-                    <a
-                        href="https://www.education.gov.za/Curriculum/CurriculumAssessmentPolicyStatements(CAPS)/CAPSSenior.aspx"
-                        target="_blank"
-                        class="resource-button">
-
-                        View CAPS
-
-                    </a>
-
-                </div>
-
-
-
-                <!-- WORKSHEETS -->
-
-                <div class="resource">
-
-                    <div class="resource-icon">
-                        📝
-                    </div>
-
-                    <h3>
-                        Learner Worksheets
-                    </h3>
-
-                    <p>
-                        Additional activities for practising the
-                        identification, classification and explanation
-                        of energy sources.
-                    </p>
-
-                    <button
-                        class="resource-button"
-                        onclick="showResourceMessage(
-                            'Learner Worksheets',
-                            'Learner worksheets will be added here as the Energy Explorer resource develops.'
-                        )">
-
-                        Coming Soon
-
-                    </button>
-
-                </div>
-
-
-
-                <!-- ACTIVITIES -->
-
-                <div class="resource">
-
-                    <div class="resource-icon">
-                        🎮
-                    </div>
-
-                    <h3>
-                        Energy Activities
-                    </h3>
-
-                    <p>
-                        Explore the physical Energy Explorer board,
-                        energy cards and classification activities.
-                    </p>
-
-                    <a
-                        href="#activity"
-                        class="resource-button">
-
-                        Explore Activity
-
-                    </a>
-
-                </div>
-
-
-
-                <!-- THINK FURTHER -->
-
-                <div class="resource">
-
-                    <div class="resource-icon">
-                        💡
-                    </div>
-
-                    <h3>
-                        Think Further
-                    </h3>
-
-                    <p>
-                        Investigate how different energy sources are
-                        used in South Africa and consider their
-                        advantages and disadvantages.
-                    </p>
-
-                    <button
-                        class="resource-button"
-                        onclick="showResourceMessage(
-                            'Think Further',
-                            'Extension activities and research questions will be added here.'
-                        )">
-
-                        Explore
-
-                    </button>
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =================================
-                 CURRICULUM ALIGNMENT
-            ================================= -->
-
-            <div class="curriculum-box">
-
-                <div class="curriculum-icon">
-                    🎯
-                </div>
-
-                <div>
-
-                    <h3>
-                        Curriculum Alignment
-                    </h3>
-
-                    <p>
-
-                        <strong>
-                            Grade 7 Natural Sciences
-                        </strong>
-
-                        → Term 3
-
-                        → Energy and Change
-
-                        → Sources of Energy
-
-                        → Renewable and Non-renewable Energy
-
-                    </p>
-
-                    <p class="curriculum-note">
-
-                        Energy Explorer supports learners in identifying
-                        energy sources, classifying them as renewable or
-                        non-renewable, explaining their reasoning and
-                        communicating their scientific understanding.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         ABOUT AUTHOR
-    ========================================= -->
-
-    <section class="author-section" id="author">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>
-                    👨‍🏫 Meet the Educator Behind Energy Explorer
-                </h2>
-
-                <p>
-                    Learn more about the person behind this learning resource.
-                </p>
-
-            </div>
-
-
-            <div class="author-card">
-
-
-                <!-- AUTHOR PHOTO -->
-
-                <div class="author-photo">
-
-                    <div>
-
-                        <strong>
-                            PHOTO PLACEHOLDER
-                        </strong>
-
-                        <br><br>
-
-                        Add Njabulo Zondo's professional
-                        photograph here.
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- AUTHOR INFORMATION -->
-
-                <div class="author-info">
-
-                    <h2>
-                        Njabulo Zondo
-                    </h2>
-
-                    <div class="author-role">
-                        🎓 Educator in Training
-                    </div>
-
-
-                    <p>
-
-                        Njabulo Zondo is a Bachelor of Education student
-                        and an educator in training with a passion for creating
-                        meaningful, learner-centred learning experiences.
-
-                    </p>
-
-                    <br>
-
-
-                    <p>
-
-                        The idea behind Energy Explorer comes from a simple
-                        belief: learners should not only read about scientific
-                        concepts — they should have opportunities to explore,
-                        interact, classify, discuss and explain them.
-
-                    </p>
-
-                    <br>
-
-
-                    <p>
-
-                        This Grade 7 Natural Sciences learning resource was
-                        designed to transform the topic of energy sources into
-                        an experience that encourages active participation.
-                        The physical energy cards and interactive activities
-                        help learners recognise different energy sources and
-                        distinguish between renewable and non-renewable energy.
-
-                    </p>
-
-
-                    <div class="quote">
-
-                        “Learning becomes meaningful when learners are given
-                        the opportunity to experience what they are learning.”
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================= -->
-
-    <footer>
-
-        <h3>
-            ⚡ ENERGY EXPLORER
-        </h3>
-
-        <p>
-            Grade 7 Natural Sciences • Explore • Classify • Understand
-        </p>
-
-        <br>
-
-        <p>
-            Designed & Developed by
-            <strong>
-                Njabulo Zondo
-            </strong>
-        </p>
-
-    </footer>
-
-
-
-    <!-- =========================================
-         MODAL
-    ========================================= -->
-
-    <div
-        class="modal"
-        id="energyModal">
-
-        <div class="modal-content">
-
-            <span
-                class="close"
-                onclick="closeModal()">
-
-                &times;
-
-            </span>
-
-            <h2 id="modalTitle">
-                Energy Source
-            </h2>
-
-            <p id="modalDescription">
-                Energy information will appear here.
-            </p>
 
         </div>
 
     </div>
 
+</section>
 
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================= -->
+<!-- =========================================
+     LEARNING OBJECTIVES
+========================================= -->
 
-    <script>
+<section class="objectives">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+
+                <i class="fa-solid fa-bullseye"></i>
+
+                Learning Objectives
+
+            </h2>
+
+            <p>
+                By the end of the activity, learners should be able to:
+            </p>
+
+        </div>
 
 
-        /* ENERGY SOURCE MODAL */
+        <div class="objectives-list">
 
-        function openModal(title, description) {
 
-            document
-                .getElementById("modalTitle")
-                .innerText = title;
+            <div class="objective">
 
-            document
-                .getElementById("modalDescription")
-                .innerText = description;
+                <i class="fa-solid fa-circle-check"></i>
 
-            document
-                .getElementById("energyModal")
-                .style.display = "flex";
+                Identify different energy sources.
+
+            </div>
+
+
+            <div class="objective">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Describe how different energy sources can be used.
+
+            </div>
+
+
+            <div class="objective">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Classify energy sources as renewable or non-renewable.
+
+            </div>
+
+
+            <div class="objective">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Explain the reasoning behind their classifications.
+
+            </div>
+
+
+            <div class="objective">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Communicate and discuss scientific ideas with others.
+
+            </div>
+
+
+            <div class="objective">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Connect classroom learning with energy use in everyday life.
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     RESOURCES
+========================================= -->
+
+<section id="resources">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+
+                <i class="fa-solid fa-book-open"></i>
+
+                Learning Resources
+
+            </h2>
+
+            <p>
+                Explore videos, games, practical activities and worksheets
+                designed to support your Energy Explorer journey.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================
+             VIDEO RESOURCE
+        ====================================== -->
+
+        <div class="video-resource">
+
+
+            <div class="video-heading">
+
+                <span class="resource-icon">
+
+                    <i class="fa-solid fa-circle-play"></i>
+
+                </span>
+
+
+                <div>
+
+                    <h3>
+                        Educational Video
+                    </h3>
+
+                    <p>
+                        Renewable and Non-renewable Sources of Energy
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="video-wrapper">
+
+    <iframe
+        src="https://www.youtube.com/embed/axCR3uIn3Vs?si=P-e40lYbfHiQKuLZ"
+        title="Renewable and Non-renewable Sources of Energy"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+    </iframe>
+
+             </div>
+
+
+            <div class="video-learning">
+
+                <h4>
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                    Think While You Watch
+
+                </h4>
+
+
+                <p>
+                    As you watch the video, think about the differences
+                    between renewable and non-renewable energy sources.
+                </p>
+
+
+                <div class="think-question">
+
+                    <strong>
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        Explorer Question:
+
+                    </strong>
+
+                    <br>
+
+                    What makes an energy source renewable or
+                    non-renewable?
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             FIVE RESOURCE CARDS
+        ====================================== -->
+
+        <div class="resources-grid">
+
+
+            <!-- RESOURCE 1 -->
+
+            <div class="resource resource-video">
+
+                <div class="resource-icon">
+
+                    <i class="fa-solid fa-video"></i>
+
+                </div>
+
+
+                <h3>
+                    Educational Video
+                </h3>
+
+
+                <p>
+                    Watch and explore the difference between renewable
+                    and non-renewable energy resources.
+                </p>
+
+
+                <a
+                    href="#resources"
+                    class="resource-button">
+
+                    Watch Above
+
+                </a>
+
+            </div>
+
+
+            <!-- RESOURCE 2 -->
+
+            <div class="resource resource-booklet">
+
+                <div class="resource-icon">
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                </div>
+
+
+                <h3>
+                    Educational Game Booklet
+                </h3>
+
+
+                <p>
+                    Use the Energy Explorer booklet to reinforce learning
+                    through interactive game-based activities.
+                </p>
+
+
+                <!-- PASTE YOUR BOOKLET LINK HERE -->
+
+                <a
+                    href="#"
+                    onclick="showResourceMessage(
+                        'Educational Game Booklet',
+                        'Your online Educational Game Booklet will be linked here. Replace the # in the code with your booklet link.'
+                    ); return false;"
+                    class="resource-button">
+
+                    Open Booklet
+
+                </a>
+
+            </div>
+
+
+            <!-- RESOURCE 3 -->
+
+            <div class="resource resource-hands-on">
+
+                <div class="resource-icon">
+
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                </div>
+
+
+                <h3>
+                    Hands-on Activity
+                </h3>
+
+
+                <p>
+                    Design and build a model that demonstrates how
+                    renewable energy can be used for a useful purpose.
+                </p>
+
+
+                <button
+                    class="resource-button"
+                    onclick="openHandsOnActivity()">
+
+                    View Activity
+
+                </button>
+
+            </div>
+
+
+            <!-- RESOURCE 4 -->
+
+            <div class="resource resource-worksheet">
+
+                <div class="resource-icon">
+
+                    <i class="fa-solid fa-file-lines"></i>
+
+                </div>
+
+
+                <h3>
+                    Learner Worksheets
+                </h3>
+
+
+                <p>
+                    Test your understanding through quizzes, Column A and
+                    B, True or False and paragraph questions.
+                </p>
+
+
+                <button
+                    class="resource-button"
+                    onclick="showResourceMessage(
+                        'Learner Worksheets',
+                        'The learner worksheet will contain approximately 15–20 questions covering quizzes, Column A and B, True or False, and a paragraph response.'
+                    )">
+
+                    Open Worksheet
+
+                </button>
+
+            </div>
+
+
+            <!-- RESOURCE 5 -->
+
+            <div class="resource resource-game">
+
+                <div class="resource-icon">
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                </div>
+
+
+                <h3>
+                    Online Energy Game
+                </h3>
+
+
+                <p>
+                    Practise identifying and classifying energy sources
+                    through an interactive online game.
+                </p>
+
+
+                <!-- PASTE YOUR ONLINE GAME LINK HERE -->
+
+                <a
+                    href="#"
+                    onclick="showResourceMessage(
+                        'Online Energy Game',
+                        'Your online Energy Game will be linked here. Replace the # in the code with your game link.'
+                    ); return false;"
+                    class="resource-button">
+
+                    Play Game
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =====================================
+             CURRICULUM ALIGNMENT
+        ====================================== -->
+
+        <div class="curriculum-box">
+
+
+            <div class="curriculum-icon">
+
+                <i class="fa-solid fa-bullseye"></i>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Curriculum Alignment
+                </h3>
+
+
+                <p>
+                    Grade 7 Natural Sciences
+                    → Term 3
+                    → Energy and Change
+                    → Sources of Energy
+                    → Renewable and Non-renewable Energy
+                </p>
+
+
+                <p class="curriculum-note">
+                    Energy Explorer supports learners in identifying
+                    energy sources, classifying them as renewable or
+                    non-renewable, explaining their reasoning,
+                    communicating scientific ideas and applying their
+                    knowledge through practical activities.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ABOUT AUTHOR
+========================================= -->
+
+<section class="author-section" id="author">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+
+                Meet the Educator Behind Energy Explorer
+
+            </h2>
+
+            <p>
+                Learn more about the person behind this learning resource.
+            </p>
+
+        </div>
+
+
+        <div class="author-card">
+
+
+            <div class="author-photo">
+
+                <div>
+
+                    <strong>
+                        PHOTO PLACEHOLDER
+                    </strong>
+
+                    <br><br>
+
+                    Add your professional photograph here.
+
+                </div>
+
+            </div>
+
+
+            <div class="author-info">
+
+
+                <h2>
+                    Njabulo Zondo
+                </h2>
+
+
+                <div class="author-role">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    Educator in Training
+
+                </div>
+
+
+                <p>
+                    Njabulo Zondo is a Bachelor of Education student
+                    and an educator in training with a passion for creating
+                    meaningful, learner-centred learning experiences.
+                </p>
+
+
+                <br>
+
+
+                <p>
+                    The idea behind Energy Explorer comes from a simple
+                    belief: learners should not only read about scientific
+                    concepts — they should have opportunities to explore,
+                    interact, classify, discuss and explain them.
+                </p>
+
+
+                <br>
+
+
+                <p>
+                    This Grade 7 Natural Sciences learning resource was
+                    designed to transform the topic of energy sources into
+                    an experience that encourages active participation.
+                    The physical energy cards and interactive activities
+                    help learners recognise different energy sources and
+                    distinguish between renewable and non-renewable energy.
+                </p>
+
+
+                <div class="quote">
+
+                    “Learning becomes meaningful when learners are given
+                    the opportunity to experience what they are learning.”
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <h3>
+
+        <i class="fa-solid fa-bolt"></i>
+
+        ENERGY EXPLORER
+
+    </h3>
+
+
+    <p>
+        Grade 7 Natural Sciences • Explore • Classify • Understand
+    </p>
+
+
+    <br>
+
+
+    <p>
+        Designed & Developed by
+        <strong>
+            Njabulo Zondo
+        </strong>
+    </p>
+
+</footer>
+
+
+<!-- =========================================
+     MODAL
+========================================= -->
+
+<div
+    class="modal"
+    id="energyModal">
+
+
+    <div class="modal-content">
+
+
+        <span
+            class="close"
+            onclick="closeModal()">
+
+            &times;
+
+        </span>
+
+
+        <h2 id="modalTitle">
+            Energy Source
+        </h2>
+
+
+        <div id="modalDescription">
+            Energy information will appear here.
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+
+    /* =========================================
+       GENERAL MODAL
+    ========================================= */
+
+    function openModal(title, description) {
+
+        document
+            .getElementById("modalTitle")
+            .innerText = title;
+
+        document
+            .getElementById("modalDescription")
+            .innerHTML =
+                "<p>" + description + "</p>";
+
+        document
+            .getElementById("energyModal")
+            .style.display = "flex";
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closeModal() {
+
+        document
+            .getElementById("energyModal")
+            .style.display = "none";
+
+        document.body.style.overflow = "auto";
+
+    }
+
+
+    /* =========================================
+       RESOURCE MESSAGE
+    ========================================= */
+
+    function showResourceMessage(title, message) {
+
+        openModal(title, message);
+
+    }
+
+
+    /* =========================================
+       HANDS-ON RENEWABLE ENERGY ACTIVITY
+    ========================================= */
+
+    function openHandsOnActivity() {
+
+        document
+            .getElementById("modalTitle")
+            .innerText =
+                "Design Challenge: Build a Renewable Energy Model";
+
+
+        document
+            .getElementById("modalDescription")
+            .innerHTML = `
+
+                <div class="modal-intro">
+
+                    <strong>
+                        Your Challenge:
+                    </strong>
+
+                    <br><br>
+
+                    Design and construct a model that demonstrates
+                    how a renewable energy source can be used to
+                    perform a useful task.
+
+                </div>
+
+
+                <h3>
+                    Learning Purpose
+                </h3>
+
+                <p>
+                    This activity gives you an opportunity to move
+                    beyond simply reading about renewable energy.
+                    You will design, build, test and explain a model
+                    that demonstrates how renewable energy can be
+                    useful in everyday life.
+                </p>
+
+
+                <h3>
+                    Teacher's Example
+                </h3>
+
+
+                <div class="example-placeholder">
+
+                    <div>
+
+                        <strong>
+                            SOLAR MINI-OVEN IMAGE PLACEHOLDER
+                        </strong>
+
+                        <br><br>
+
+                        Insert the photograph of the teacher's
+                        Solar Mini-Oven here.
+
+                        <br><br>
+
+                        <em>
+                            Learners should study the example before
+                            designing their own model.
+                        </em>
+
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Materials
+                </h3>
+
+                <p>
+                    Use safe and easily available materials. Recycled
+                    materials are encouraged where appropriate.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Cardboard boxes or recycled containers
+                    </li>
+
+                    <li>
+                        Paper or cardboard
+                    </li>
+
+                    <li>
+                        Aluminium foil
+                    </li>
+
+                    <li>
+                        Tape or glue
+                    </li>
+
+                    <li>
+                        Scissors
+                    </li>
+
+                    <li>
+                        String, sticks or other suitable materials
+                    </li>
+
+                    <li>
+                        Other safe materials needed for your design
+                    </li>
+
+                </ul>
+
+
+                <h3>
+                    Step 1: Choose Your Renewable Energy Source
+                </h3>
+
+                <p>
+                    Choose a renewable energy source that your model
+                    can demonstrate.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Solar energy
+                    </li>
+
+                    <li>
+                        Wind energy
+                    </li>
+
+                    <li>
+                        Water energy
+                    </li>
+
+                    <li>
+                        Biomass
+                    </li>
+
+                </ul>
+
+
+                <h3>
+                    Step 2: Plan Your Model
+                </h3>
+
+                <p>
+                    Before building, draw a labelled sketch of your
+                    proposed model.
+                </p>
+
+                <p>
+                    Your plan should show:
+                </p>
+
+                <ul>
+
+                    <li>
+                        The renewable energy source
+                    </li>
+
+                    <li>
+                        The materials you intend to use
+                    </li>
+
+                    <li>
+                        How the energy will be used
+                    </li>
+
+                    <li>
+                        The useful task your model is designed to perform
+                    </li>
+
+                </ul>
+
+
+                <h3>
+                    Step 3: Build Your Model
+                </h3>
+
+                <p>
+                    Carefully construct your model using your planned
+                    design. Work safely and cooperate with your group
+                    members if you are working in a group.
+                </p>
+
+
+                <h3>
+                    Step 4: Test Your Model
+                </h3>
+
+                <p>
+                    Test your model and observe what happens.
+                    Ask yourself:
+                </p>
+
+                <ul>
+
+                    <li>
+                        Does the renewable energy source reach the model?
+                    </li>
+
+                    <li>
+                        Can the model demonstrate the intended use
+                        of the energy?
+                    </li>
+
+                    <li>
+                        What worked well?
+                    </li>
+
+                    <li>
+                        What did not work as expected?
+                    </li>
+
+                </ul>
+
+
+                <h3>
+                    Step 5: Improve Your Design
+                </h3>
+
+                <p>
+                    Make at least one improvement to your model after
+                    testing it. Explain why you made the change.
+                </p>
+
+
+                <h3>
+                    Step 6: Explain Your Model
+                </h3>
+
+                <p>
+                    Prepare a short explanation answering these questions:
+                </p>
+
+                <ol>
+
+                    <li>
+                        Which renewable energy source did you use?
+                    </li>
+
+                    <li>
+                        How does your model use this energy?
+                    </li>
+
+                    <li>
+                        What useful task does your model demonstrate?
+                    </li>
+
+                    <li>
+                        Why is your chosen energy source renewable?
+                    </li>
+
+                    <li>
+                        What improvement did you make after testing?
+                    </li>
+
+                </ol>
+
+
+                <h3>
+                    Learner Reflection
+                </h3>
+
+                <p>
+                    Complete the following sentence:
+                </p>
+
+
+                <div class="think-question">
+
+                    <strong>
+                        "I learned that renewable energy can..."
+                    </strong>
+
+                </div>
+
+
+                <h3>
+                    Assessment Rubric — 25 Marks
+                </h3>
+
+
+                <table class="rubric-table">
+
+                    <tr>
+
+                        <th>
+                            Criteria
+                        </th>
+
+                        <th>
+                            Marks
+                        </th>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Correct identification and use of renewable energy
+                        </td>
+
+                        <td>
+                            5
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Planning and labelled design
+                        </td>
+
+                        <td>
+                            5
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Construction and creativity
+                        </td>
+
+                        <td>
+                            5
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Explanation of energy use
+                        </td>
+
+                        <td>
+                            5
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Testing and improvement
+                        </td>
+
+                        <td>
+                            5
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <th>
+                            TOTAL
+                        </th>
+
+                        <th>
+                            25
+                        </th>
+
+                    </tr>
+
+                </table>
+
+            `;
+
+
+        document
+            .getElementById("energyModal")
+            .style.display = "flex";
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+
+    /* =========================================
+       CLOSE MODAL WHEN CLICKING OUTSIDE
+    ========================================= */
+
+    window.onclick = function(event) {
+
+        const modal =
+            document.getElementById("energyModal");
+
+        if (event.target === modal) {
+
+            closeModal();
 
         }
 
-
-        function closeModal() {
-
-            document
-                .getElementById("energyModal")
-                .style.display = "none";
-
-        }
+    };
 
 
-        /* CLOSE MODAL WHEN CLICKING OUTSIDE */
+    /* =========================================
+       ESCAPE KEY
+    ========================================= */
 
-        window.onclick = function(event) {
+    document.addEventListener(
+        "keydown",
+        function(event) {
 
-            const modal =
-                document.getElementById("energyModal");
-
-            if (event.target === modal) {
+            if (event.key === "Escape") {
 
                 closeModal();
 
             }
 
-        };
-
-
-        /* CLOSE MODAL WITH ESCAPE */
-
-        document.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (event.key === "Escape") {
-
-                    closeModal();
-
-                }
-
-            }
-        );
-
-
-        /* RESOURCE MESSAGE */
-
-        function showResourceMessage(title, message) {
-
-            openModal(title, message);
-
         }
+    );
 
-    </script>
 
+    /* =========================================
+       HERO BACKGROUND SLIDESHOW
+       
+       Each image is displayed for 5 seconds.
+       The current image slides LEFT while
+       the next image enters from the RIGHT.
+    ========================================= */
+
+    const heroSlides =
+        document.querySelectorAll(".hero-collage img");
+
+    let currentHeroSlide = 0;
+
+    if (
+        heroSlides.length > 1 &&
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+
+        setInterval(function() {
+
+            const previousSlide =
+                currentHeroSlide;
+
+
+            currentHeroSlide =
+                (currentHeroSlide + 1) %
+                heroSlides.length;
+
+
+            heroSlides[previousSlide]
+                .classList
+                .remove("active");
+
+            heroSlides[previousSlide]
+                .classList
+                .add("previous");
+
+
+            heroSlides[currentHeroSlide]
+                .classList
+                .add("active");
+
+
+            setTimeout(function() {
+
+                heroSlides[previousSlide]
+                    .classList
+                    .remove("previous");
+
+            }, 1200);
+
+
+        }, 5000);
+
+    }
+
+
+</script>
 
 </body>
 
