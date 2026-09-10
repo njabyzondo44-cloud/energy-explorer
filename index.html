@@ -3591,19 +3591,838 @@
 
                 <div class="worksheet-embed">
 
-                    <iframe
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSesPIxcvsM_bbf4pxzD6zJvaPNze0vl44DiWxsYQu1xZ0XfyA/viewform?embedded=true"
-                        title="Energy Explorer Learner Worksheet"
-                        width="700"
-                        height="700"
-                        frameborder="0"
-                        marginheight="0"
-                        marginwidth="0">
+                    <!-- ENERGY EXPLORERS INTERACTIVE WORKSHEET -->
+<div class="energy-worksheet">
 
-                        Loading…
+    <div class="worksheet-header">
+        <div class="worksheet-icon">⚡</div>
+        <div>
+            <h2>Energy Explorers Consolidation Worksheet</h2>
+            <p>Grade 7 Natural Sciences: Potential and Kinetic Energy</p>
+        </div>
+    </div>
 
-                    </iframe>
+    <div class="worksheet-intro">
+        <strong>Instructions:</strong>
+        Complete all sections below. Read each question carefully and use
+        what you learned during the Energy Explorers activities.
+    </div>
 
+    <!-- LEARNER DETAILS -->
+    <div class="worksheet-card">
+        <h3>👤 Learner Details</h3>
+
+        <div class="worksheet-grid">
+            <div>
+                <label for="learnerName">Name and Surname</label>
+                <input type="text" id="learnerName" placeholder="Enter your name">
+            </div>
+
+            <div>
+                <label for="learnerClass">Class</label>
+                <input type="text" id="learnerClass" placeholder="Enter your class">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SECTION 1 -->
+    <div class="worksheet-card">
+        <span class="section-number">SECTION 1</span>
+        <h3>Potential or Kinetic Energy?</h3>
+
+        <p>
+            Identify whether each example demonstrates
+            <strong>potential energy</strong> or <strong>kinetic energy</strong>.
+        </p>
+
+        <div class="question">
+            <label>1.1 Water stored behind a dam.</label>
+
+            <div class="choice-group">
+                <label>
+                    <input type="radio" name="q11" value="potential">
+                    Potential energy
+                </label>
+
+                <label>
+                    <input type="radio" name="q11" value="kinetic">
+                    Kinetic energy
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label>1.2 Water flowing through a turbine.</label>
+
+            <div class="choice-group">
+                <label>
+                    <input type="radio" name="q12" value="potential">
+                    Potential energy
+                </label>
+
+                <label>
+                    <input type="radio" name="q12" value="kinetic">
+                    Kinetic energy
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label>1.3 A moving wind turbine.</label>
+
+            <div class="choice-group">
+                <label>
+                    <input type="radio" name="q13" value="potential">
+                    Potential energy
+                </label>
+
+                <label>
+                    <input type="radio" name="q13" value="kinetic">
+                    Kinetic energy
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label>1.4 An object held above the ground.</label>
+
+            <div class="choice-group">
+                <label>
+                    <input type="radio" name="q14" value="potential">
+                    Potential energy
+                </label>
+
+                <label>
+                    <input type="radio" name="q14" value="kinetic">
+                    Kinetic energy
+                </label>
+            </div>
+        </div>
+
+        <div class="feedback" id="section1Feedback"></div>
+    </div>
+
+
+    <!-- SECTION 2 -->
+    <div class="worksheet-card">
+        <span class="section-number">SECTION 2</span>
+        <h3>Understanding Energy</h3>
+
+        <div class="question">
+            <label for="q2">
+                <strong>2.</strong> Explain the difference between
+                potential energy and kinetic energy.
+            </label>
+
+            <textarea
+                id="q2"
+                rows="5"
+                placeholder="Write your explanation here..."></textarea>
+        </div>
+
+        <div class="teacher-review">
+            📝 <strong>Teacher review:</strong>
+            This explanation will need to be assessed by your teacher.
+        </div>
+    </div>
+
+
+    <!-- SECTION 3 -->
+    <div class="worksheet-card">
+        <span class="section-number">SECTION 3</span>
+        <h3>⚡ Energy Transformations</h3>
+
+        <p>Complete each energy transformation.</p>
+
+        <div class="question">
+            <label>
+                <strong>3.1 Mini-Dam</strong><br>
+                Stored water → Moving water →
+            </label>
+
+            <input
+                type="text"
+                id="q31"
+                placeholder="What form of energy is produced?">
+        </div>
+
+        <div class="question">
+            <label>
+                <strong>3.2 Solar Mini-Oven</strong><br>
+                Sunlight →
+            </label>
+
+            <input
+                type="text"
+                id="q32"
+                placeholder="What useful form of energy is produced?">
+        </div>
+
+        <div class="question">
+            <label>
+                <strong>3.3 Wind Turbine</strong><br>
+                Moving wind → Moving turbine →
+            </label>
+
+            <input
+                type="text"
+                id="q33"
+                placeholder="What form of energy is produced?">
+        </div>
+
+        <div class="feedback" id="section3Feedback"></div>
+    </div>
+
+
+    <!-- SECTION 4 -->
+    <div class="worksheet-card">
+        <span class="section-number">SECTION 4</span>
+        <h3>💧 Apply Your Knowledge</h3>
+
+        <div class="scenario-box">
+            <strong>Scenario:</strong>
+
+            <p>
+                A hydroelectric power station stores water behind a dam.
+                The water is then released and flows rapidly through turbines.
+            </p>
+        </div>
+
+        <div class="question">
+            <label for="q4">
+                Explain how the water's energy changes from the moment
+                it is stored until it begins moving the turbine.
+            </label>
+
+            <textarea
+                id="q4"
+                rows="7"
+                placeholder="Explain the energy changes..."></textarea>
+        </div>
+
+        <div class="teacher-review">
+            📝 <strong>Teacher review:</strong>
+            This explanation will need to be assessed by your teacher.
+        </div>
+    </div>
+
+
+    <!-- SECTION 5 -->
+    <div class="worksheet-card">
+        <span class="section-number">SECTION 5</span>
+        <h3>🌱 Renewable Energy</h3>
+
+        <div class="question">
+            <label for="q5">
+                Why is it important for people to investigate and use
+                renewable sources of energy?
+            </label>
+
+            <textarea
+                id="q5"
+                rows="6"
+                placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <div class="teacher-review">
+            📝 <strong>Teacher review:</strong>
+            This explanation will need to be assessed by your teacher.
+        </div>
+    </div>
+
+
+    <!-- SECTION 6 -->
+    <div class="worksheet-card challenge-card">
+        <span class="section-number">SECTION 6</span>
+        <h3>🏫 Energy Explorer Challenge</h3>
+
+        <div class="scenario-box">
+            <strong>Your challenge:</strong>
+
+            <p>
+                Imagine that your school wants to reduce its use of
+                electricity from non-renewable sources.
+            </p>
+
+            <p>
+                Choose <strong>ONE renewable energy source</strong>
+                that could be useful at your school and explain:
+            </p>
+
+            <ul>
+                <li>What the energy source is.</li>
+                <li>How it could be used.</li>
+                <li>Why it would be useful.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <label for="q6source">
+                My chosen renewable energy source:
+            </label>
+
+            <input
+                type="text"
+                id="q6source"
+                placeholder="e.g. Solar energy">
+        </div>
+
+        <div class="question">
+            <label for="q6">
+                My explanation:
+            </label>
+
+            <textarea
+                id="q6"
+                rows="8"
+                placeholder="Explain your choice..."></textarea>
+        </div>
+
+        <div class="teacher-review">
+            📝 <strong>Teacher review:</strong>
+            Your teacher will assess your explanation based on your
+            understanding and reasoning.
+        </div>
+    </div>
+
+
+    <!-- RESULTS -->
+    <div id="worksheetResults" class="worksheet-results">
+
+        <h3>⚡ Energy Explorer Results</h3>
+
+        <div class="score-display">
+            <span id="scoreNumber">0</span>
+            <span>/ 7</span>
+        </div>
+
+        <p id="resultMessage"></p>
+
+        <div class="review-note">
+            <strong>Remember:</strong>
+            Your written explanations are not automatically marked.
+            They have been saved on this page for your teacher to review.
+        </div>
+
+    </div>
+
+
+    <!-- BUTTONS -->
+    <div class="worksheet-actions">
+
+        <button
+            type="button"
+            class="worksheet-button check-button"
+            onclick="checkEnergyWorksheet()">
+
+            ✓ Check My Answers
+
+        </button>
+
+        <button
+            type="button"
+            class="worksheet-button print-button"
+            onclick="window.print()">
+
+            🖨 Print / Save as PDF
+
+        </button>
+
+        <button
+            type="button"
+            class="worksheet-button reset-button"
+            onclick="resetEnergyWorksheet()">
+
+            ↻ Reset Worksheet
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<style>
+
+/* ================================
+   ENERGY EXPLORER WORKSHEET
+   ================================ */
+
+.energy-worksheet {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 25px;
+    color: #102a43;
+    font-family: Arial, sans-serif;
+}
+
+.worksheet-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 25px;
+    border-radius: 16px;
+    background: #102a43;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.worksheet-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #ffd166;
+    color: #102a43;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.worksheet-header h2 {
+    margin: 0 0 5px;
+    font-size: 28px;
+}
+
+.worksheet-header p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.worksheet-intro {
+    background: #f4f8fb;
+    border-left: 5px solid #ffd166;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.worksheet-card {
+    background: white;
+    border: 1px solid #d9e2ec;
+    border-radius: 14px;
+    padding: 25px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 12px rgba(16, 42, 67, 0.08);
+}
+
+.worksheet-card h3 {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    color: #102a43;
+}
+
+.section-number {
+    display: inline-block;
+    background: #ffd166;
+    color: #102a43;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.worksheet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.question {
+    margin: 24px 0;
+}
+
+.question > label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #bcccdc;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    background: #fbfdff;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ffd166;
+    box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.2);
+}
+
+.choice-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.choice-group label {
+    border: 1px solid #bcccdc;
+    padding: 11px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #f8fafc;
+}
+
+.choice-group label:hover {
+    background: #fff8df;
+    border-color: #ffd166;
+}
+
+.choice-group input {
+    margin-right: 7px;
+}
+
+.scenario-box {
+    background: #f4f8fb;
+    border-left: 4px solid #102a43;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.scenario-box p {
+    line-height: 1.6;
+}
+
+.scenario-box li {
+    margin-bottom: 7px;
+}
+
+.teacher-review {
+    background: #fff8df;
+    border-left: 4px solid #ffd166;
+    padding: 13px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.feedback {
+    display: none;
+    margin-top: 15px;
+    padding: 13px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.feedback.show {
+    display: block;
+    background: #edf7ed;
+    border-left: 4px solid #4caf50;
+}
+
+.worksheet-results {
+    display: none;
+    text-align: center;
+    background: #102a43;
+    color: white;
+    padding: 28px;
+    border-radius: 15px;
+    margin: 25px 0;
+}
+
+.worksheet-results.show {
+    display: block;
+}
+
+.score-display {
+    font-size: 42px;
+    font-weight: bold;
+    color: #ffd166;
+    margin: 10px 0;
+}
+
+.review-note {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.worksheet-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.worksheet-button {
+    border: none;
+    border-radius: 8px;
+    padding: 13px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.worksheet-button:hover {
+    transform: translateY(-2px);
+}
+
+.check-button {
+    background: #ffd166;
+    color: #102a43;
+}
+
+.print-button {
+    background: #102a43;
+    color: white;
+}
+
+.reset-button {
+    background: #d9e2ec;
+    color: #102a43;
+}
+
+
+/* ================================
+   MOBILE
+   ================================ */
+
+@media (max-width: 700px) {
+
+    .energy-worksheet {
+        padding: 12px;
+        margin: 20px auto;
+    }
+
+    .worksheet-header {
+        padding: 20px;
+    }
+
+    .worksheet-header h2 {
+        font-size: 22px;
+    }
+
+    .worksheet-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .worksheet-card {
+        padding: 18px;
+    }
+
+    .choice-group {
+        flex-direction: column;
+    }
+
+    .worksheet-button {
+        width: 100%;
+    }
+}
+
+
+/* ================================
+   PRINT VERSION
+   ================================ */
+
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    .energy-worksheet,
+    .energy-worksheet * {
+        visibility: visible;
+    }
+
+    .energy-worksheet {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .worksheet-actions {
+        display: none;
+    }
+
+    .worksheet-results {
+        display: block;
+    }
+
+    .worksheet-card {
+        box-shadow: none;
+        break-inside: avoid;
+    }
+
+}
+
+</style>
+
+
+<script>
+
+/* ================================
+   ENERGY EXPLORER MARKING
+   ================================ */
+
+function checkEnergyWorksheet() {
+
+    let score = 0;
+
+    /* Question 1 */
+
+    const q11 = document.querySelector('input[name="q11"]:checked');
+    const q12 = document.querySelector('input[name="q12"]:checked');
+    const q13 = document.querySelector('input[name="q13"]:checked');
+    const q14 = document.querySelector('input[name="q14"]:checked');
+
+    if (q11 && q11.value === "potential") score++;
+    if (q12 && q12.value === "kinetic") score++;
+    if (q13 && q13.value === "kinetic") score++;
+    if (q14 && q14.value === "potential") score++;
+
+
+    /* Question 3 */
+
+    const q31 = document.getElementById("q31").value
+        .trim()
+        .toLowerCase();
+
+    const q32 = document.getElementById("q32").value
+        .trim()
+        .toLowerCase();
+
+    const q33 = document.getElementById("q33").value
+        .trim()
+        .toLowerCase();
+
+
+    /*
+       Accept several scientifically reasonable answers.
+    */
+
+    if (
+        q31.includes("kinetic") ||
+        q31.includes("electric") ||
+        q31.includes("electrical")
+    ) {
+        score++;
+    }
+
+    if (
+        q32.includes("heat") ||
+        q32.includes("thermal")
+    ) {
+        score++;
+    }
+
+    if (
+        q33.includes("electric") ||
+        q33.includes("electrical")
+    ) {
+        score++;
+    }
+
+
+    /* Display section feedback */
+
+    document.getElementById("section1Feedback").innerHTML =
+        "Section 1 checked. Review any incorrect selections and think about whether the energy is stored or moving.";
+
+    document.getElementById("section1Feedback").classList.add("show");
+
+
+    document.getElementById("section3Feedback").innerHTML =
+        "Section 3 checked. Remember: moving water and wind have kinetic energy, while useful electrical energy can be produced by turbines.";
+
+    document.getElementById("section3Feedback").classList.add("show");
+
+
+    /* Results */
+
+    document.getElementById("scoreNumber").textContent = score;
+
+
+    let message = "";
+
+    if (score === 7) {
+        message = "Excellent work, Energy Explorer! You demonstrated a strong understanding of energy concepts.";
+    } 
+    else if (score >= 5) {
+        message = "Well done! You understand most of the key energy concepts. Review any questions you missed.";
+    } 
+    else if (score >= 3) {
+        message = "Good start! Review potential, kinetic and energy transformations before trying again.";
+    } 
+    else {
+        message = "Keep exploring! Go back to the Energy Explorer activities and review the difference between stored and moving energy.";
+    }
+
+    document.getElementById("resultMessage").textContent = message;
+
+    document.getElementById("worksheetResults").classList.add("show");
+
+    document.getElementById("worksheetResults").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+/* ================================
+   RESET
+   ================================ */
+
+function resetEnergyWorksheet() {
+
+    if (!confirm("Are you sure you want to clear the worksheet?")) {
+        return;
+    }
+
+    document.querySelectorAll(
+        '.energy-worksheet input[type="text"], .energy-worksheet textarea'
+    ).forEach(function(field) {
+        field.value = "";
+    });
+
+    document.querySelectorAll(
+        '.energy-worksheet input[type="radio"]'
+    ).forEach(function(radio) {
+        radio.checked = false;
+    });
+
+    document.querySelectorAll('.feedback').forEach(function(box) {
+        box.classList.remove("show");
+        box.innerHTML = "";
+    });
+
+    document.getElementById("worksheetResults")
+        .classList.remove("show");
+
+    window.scrollTo({
+        top: document.querySelector(".energy-worksheet").offsetTop - 100,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
                 </div>
 
             `;
